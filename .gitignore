@@ -1,0 +1,3 @@
+*.pdf
+.DS_Store
+!lab1/PUX_lab01_raport.pdf
