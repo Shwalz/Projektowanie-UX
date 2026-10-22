@@ -1,0 +1,76 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="wire.css"><title>Mapa prototypu</title>
+<style>
+  .flow{width:1240px;padding:32px;background:#fff;display:flex;flex-direction:column;gap:18px}
+  svg{width:1176px;height:580px}
+  .nd{fill:#fff;stroke:#1A1A1A;stroke-width:1.5}
+  .nd.ov{fill:#F2F2F2;stroke-dasharray:5 4}
+  .tl{font:600 15px -apple-system,Arial;fill:#1A1A1A}
+  .ts{font:12px -apple-system,Arial;fill:#6B6B6B}
+  .ed{stroke:#2E5AAC;stroke-width:1.6;fill:none;marker-end:url(#a)}
+  .ed.back{stroke:#6B6B6B;stroke-dasharray:5 4;marker-end:url(#b)}
+  .el{font:600 12px -apple-system,Arial;fill:#2E5AAC}
+  .el.g{fill:#6B6B6B}
+</style></head><body>
+<div class="flow">
+  <h1 style="font-size:28px">Mapa prototypu — połączenia i przejścia</h1>
+  <p class="lab">Linie ciągłe: przejścia do przodu. Linie przerywane: powrót. Węzły przerywane: nakładki (overlay) nad ekranem bazowym. Parametry każdego połączenia opisuje tabela pod mapą.</p>
+  <svg viewBox="0 0 1176 580" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2E5AAC"/></marker>
+      <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#6B6B6B"/></marker>
+    </defs>
+
+    <rect class="nd" x="20"  y="40" width="200" height="92" rx="10"/><text class="tl" x="36"  y="68">1. Onboarding</text><text class="ts" x="36"  y="90">wybór trybu</text><text class="ts" x="36"  y="110">auto / ręczny</text>
+    <rect class="nd" x="320" y="40" width="200" height="92" rx="10"/><text class="tl" x="336" y="68">2. Pulpit</text><text class="ts" x="336" y="90">limit, wykres,</text><text class="ts" x="336" y="110">lista transakcji</text>
+    <rect class="nd" x="620" y="40" width="200" height="92" rx="10"/><text class="tl" x="636" y="68">3. Szczegóły</text><text class="ts" x="636" y="90">pola transakcji,</text><text class="ts" x="636" y="110">wpływ na limit</text>
+    <rect class="nd" x="920" y="40" width="200" height="92" rx="10"/><text class="tl" x="936" y="68">4. Formularz</text><text class="ts" x="936" y="90">edycja / dodanie,</text><text class="ts" x="936" y="110">stan domyślny</text>
+
+    <path class="ed" d="M220 76 H316"/><text class="el" x="252" y="66">P1</text>
+    <path class="ed" d="M520 76 H616"/><text class="el" x="552" y="66">P2</text>
+    <path class="ed" d="M820 76 H916"/><text class="el" x="852" y="66">P3</text>
+    <path class="ed back" d="M916 110 H824"/><text class="el g" x="852" y="128">W1</text>
+
+    <rect class="nd ov" x="20"  y="250" width="200" height="92" rx="10"/><text class="tl" x="36"  y="278">2b. Raport</text><text class="ts" x="36"  y="300">zmiana widoku bez</text><text class="ts" x="36"  y="320">przeładowania ekranu</text>
+    <rect class="nd ov" x="320" y="250" width="200" height="92" rx="10"/><text class="tl" x="336" y="278">2a. Menu boczne</text><text class="ts" x="336" y="300">overlay, scrim</text><text class="ts" x="336" y="320">zamyka panel</text>
+    <rect class="nd ov" x="620" y="250" width="200" height="92" rx="10"/><text class="tl" x="636" y="278">3a. Modal „Usunąć?”</text><text class="ts" x="636" y="300">potwierdzenie akcji</text><text class="ts" x="636" y="320">nieodwracalnej + undo</text>
+    <rect class="nd" x="920" y="250" width="200" height="92" rx="10"/><text class="tl" x="936" y="278">4a. Błąd walidacji</text><text class="ts" x="936" y="300">ramka + ikona +</text><text class="ts" x="936" y="320">tekst podpowiedzi</text>
+
+    <path class="ed" d="M120 132 V246"/><text class="el" x="130" y="194">P4</text>
+    <path class="ed" d="M380 132 V246"/><text class="el" x="390" y="194">P5</text>
+    <path class="ed back" d="M470 246 V136"/><text class="el g" x="480" y="194">W2</text>
+    <path class="ed" d="M680 132 V246"/><text class="el" x="690" y="194">P6</text>
+    <path class="ed back" d="M780 246 V136"/><text class="el g" x="790" y="194">W3</text>
+    <path class="ed" d="M980 132 V246"/><text class="el" x="990" y="194">P7</text>
+
+    <rect class="nd" x="470" y="430" width="200" height="92" rx="10"/><text class="tl" x="486" y="458">3b. Offline / błąd</text><text class="ts" x="486" y="480">dane z cache, błąd</text><text class="ts" x="486" y="500">wczytania, stan pusty</text>
+    <rect class="nd" x="920" y="430" width="200" height="92" rx="10"/><text class="tl" x="936" y="458">4b. Zapisywanie</text><text class="ts" x="936" y="480">spinner, pola</text><text class="ts" x="936" y="500">zablokowane</text>
+
+    <path class="ed" d="M620 120 H570 V426"/><text class="el" x="578" y="392">P8</text>
+    <path class="ed" d="M1060 132 V426"/><text class="el" x="1070" y="300">P9</text>
+    <path class="ed back" d="M1020 526 V556 H260 V90 H316"/><text class="el g" x="430" y="548">W4 — powrót na Pulpit z komunikatem „Zapisano. Cofnij”</text>
+    <path class="ed back" d="M320 300 H240"/><text class="el g" x="250" y="292">W5</text>
+  </svg>
+
+  <div class="box">
+    <h3>Specyfikacja przejść prototypu</h3>
+    <table>
+      <tr><th style="width:52px">ID</th><th style="width:260px">Połączenie</th><th style="width:230px">Wyzwalacz</th><th style="width:250px">Animacja</th><th>Uzasadnienie</th></tr>
+      <tr><td>P1</td><td>Onboarding → Pulpit</td><td>Dotknięcie „Zaczynamy”</td><td>Slide-in w lewo, 250 ms, ease-out</td><td>Kierunek ruchu sygnalizuje postęp w procesie.</td></tr>
+      <tr><td>P2</td><td>Pulpit → Szczegóły</td><td>Dotknięcie wiersza listy</td><td>Slide-in w lewo, 250 ms</td><td>Pierwsze z dwóch kliknięć korekty kategorii.</td></tr>
+      <tr><td>P3</td><td>Szczegóły → Formularz</td><td>Przycisk „Edytuj transakcję”</td><td>Smart Animate 250 ms (nagłówek i kwota zachowują pozycję)</td><td>Ciągłość obiektu: użytkownik widzi, że edytuje tę samą transakcję.</td></tr>
+      <tr><td>P4</td><td>Pulpit → Raport</td><td>Zakładka „Raport”</td><td>Smart Animate 400 ms, wykres przekształca się w miejscu</td><td>Zmiana widoku bez przeładowania ekranu.</td></tr>
+      <tr><td>P5</td><td>Pulpit → Menu boczne</td><td>Ikona ≡ lub przeciągnięcie od lewej krawędzi</td><td>Move-in z lewej, 250 ms, ease-out, scrim 0 → 45%</td><td>Płaska nawigacja: wszystkie sekcje na jednym poziomie.</td></tr>
+      <tr><td>P6</td><td>Szczegóły → Modal „Usunąć?”</td><td>Przycisk „Usuń”</td><td>Dissolve 150 ms + skala 0,96 → 1</td><td>Akcja nieodwracalna wymaga potwierdzenia.</td></tr>
+      <tr><td>P7</td><td>Formularz → Błąd walidacji</td><td>„Zapisz” przy niepoprawnych danych</td><td>Dissolve 150 ms, przewinięcie do pierwszego błędu</td><td>Błąd pokazany natychmiast, w miejscu jego powstania.</td></tr>
+      <tr><td>P8</td><td>Szczegóły → Offline / błąd</td><td>Brak połączenia przy wejściu na ekran</td><td>Dissolve 150 ms, baner wsuwa się z góry</td><td>Stan brzegowy zamiast pustego ekranu.</td></tr>
+      <tr><td>P9</td><td>Formularz → Zapisywanie</td><td>„Zapisz” przy poprawnych danych</td><td>Stan loading + After delay 800 ms</td><td>Blokada podwójnego wpisu, widoczny postęp.</td></tr>
+      <tr><td>W1</td><td>Formularz → Szczegóły</td><td>Strzałka wstecz / „Anuluj”</td><td>Slide-out w prawo, 250 ms</td><td>Powrót bez zapisu zmian.</td></tr>
+      <tr><td>W2</td><td>Menu boczne → Pulpit</td><td>Dotknięcie przyciemnienia lub ✕</td><td>Move-out w lewo, 250 ms</td><td>Zamknięcie nakładki jednym gestem.</td></tr>
+      <tr><td>W3</td><td>Modal → Szczegóły</td><td>„Anuluj”</td><td>Dissolve 150 ms</td><td>Wyjście bez skutków ubocznych.</td></tr>
+      <tr><td>W4</td><td>Zapisywanie → Pulpit</td><td>Po zapisaniu danych</td><td>Smart Animate 250 ms + toast „Zapisano. Cofnij” (10 s)</td><td>Potwierdzenie i ścieżka cofnięcia operacji.</td></tr>
+      <tr><td>W5</td><td>Menu boczne → Raport</td><td>Pozycja „Raport miesięczny”</td><td>Move-out 250 ms, następnie zmiana widoku</td><td>Ten sam cel osiągalny z menu i z zakładki.</td></tr>
+    </table>
+    <span class="cap">Przy włączonej opcji systemowej „Ogranicz ruch” wszystkie przejścia skracane są do Dissolve 0 ms. Czasy pochodzą z tokenów <code>motion/fast</code>, <code>motion/base</code>, <code>motion/slow</code>.</span>
+  </div>
+</div><script>if(location.hash==="#map"){document.querySelector(".box").style.display="none";}</script>
+</body></html>

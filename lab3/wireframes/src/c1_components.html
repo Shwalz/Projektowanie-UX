@@ -1,0 +1,119 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="wire.css"><title>Biblioteka komponentów</title></head><body>
+<div class="sheetpage">
+  <h1>Biblioteka komponentów — komponenty główne, warianty i stany</h1>
+  <p class="lab">Każdy element poniżej jest komponentem głównym (Main Component). Ekrany korzystają wyłącznie z jego instancji, więc zmiana tokenu lub wariantu propaguje się na wszystkie ekrany.</p>
+
+  <div class="box">
+    <h3>1. Button — warianty × stany</h3>
+    <table>
+      <tr><th style="width:120px">wariant / stan</th><th>default</th><th>hover</th><th>pressed</th><th>focus</th><th>disabled</th><th>loading</th></tr>
+      <tr><th>primary</th>
+        <td><button class="btn">Zapisz</button></td>
+        <td><button class="btn is-hover">Zapisz</button></td>
+        <td><button class="btn is-pressed">Zapisz</button></td>
+        <td><button class="btn is-focus">Zapisz</button></td>
+        <td><button class="btn is-disabled">Zapisz</button></td>
+        <td><button class="btn is-loading"><span class="spin"></span> Zapisywanie…</button></td></tr>
+      <tr><th>secondary</th>
+        <td><button class="btn btn--secondary">Anuluj</button></td>
+        <td><button class="btn btn--secondary is-hover">Anuluj</button></td>
+        <td><button class="btn btn--secondary is-pressed">Anuluj</button></td>
+        <td><button class="btn btn--secondary is-focus">Anuluj</button></td>
+        <td><button class="btn btn--secondary is-disabled">Anuluj</button></td>
+        <td><button class="btn btn--secondary is-loading"><span class="spin"></span> Czekaj…</button></td></tr>
+      <tr><th>text</th>
+        <td><button class="btn btn--text">Zmień</button></td>
+        <td><button class="btn btn--text is-hover">Zmień</button></td>
+        <td><button class="btn btn--text is-pressed">Zmień</button></td>
+        <td><button class="btn btn--text is-focus">Zmień</button></td>
+        <td><button class="btn btn--text is-disabled">Zmień</button></td>
+        <td><button class="btn btn--text is-loading"><span class="spin"></span></button></td></tr>
+    </table>
+    <span class="cap">Właściwości komponentu: <code>variant = primary | secondary | text</code>, <code>state = default | hover | pressed | focus | disabled | loading</code>, <code>size = 48 (domyślny) | 56 (tryb dostępności)</code>.</span>
+  </div>
+
+  <div class="grid3">
+    <div class="box"><h3>2. TextField — stany</h3>
+      <div class="field"><span class="lab">default</span><div class="input empty">Wpisz kwotę</div></div>
+      <div class="field is-focus"><span class="lab">focus</span><div class="input">1 180,00</div></div>
+      <div class="field is-error"><span class="lab">error</span><div class="input row sb"><span>0,00</span><span>⚠</span></div><span class="msg">Kwota musi być większa od zera.</span></div>
+      <div class="field is-disabled"><span class="lab">disabled</span><div class="input">Wpis ręczny</div></div>
+    </div>
+    <div class="box"><h3>3. ListItem (transakcja)</h3>
+      <div class="list">
+        <div class="item"><div class="ph" style="width:40px;height:40px">ic</div><div class="grow"><div>default</div><div class="cap">Jedzenie</div></div><span class="amount">−14,00</span></div>
+        <div class="item is-hover"><div class="ph" style="width:40px;height:40px">ic</div><div class="grow"><div>hover</div><div class="cap">Dom → Czynsz</div></div><span class="amount">−1 180,00</span></div>
+        <div class="item"><div class="ph" style="width:40px;height:40px">ic</div><div class="grow"><div>auto-kategoria</div><div class="cap">Subskrypcje <span class="badge auto">auto</span></div></div><span class="amount">−43,00</span></div>
+        <div class="item"><div class="grow"><div class="cap">stan pusty: „Brak transakcji w tym miesiącu”</div></div></div>
+      </div>
+    </div>
+    <div class="box"><h3>4. Chip kategorii</h3>
+      <div class="row" style="flex-wrap:wrap"><span class="chip">default</span><span class="chip on">selected</span><span class="chip" style="opacity:.5">disabled</span><span class="chip">+ nowa</span></div>
+      <h3>5. Banner / Alert</h3>
+      <div class="banner">error: nie zapisano formularza</div>
+      <div class="banner info">info: zapisywanie w toku</div>
+      <h3>6. ProgressBar limitu</h3>
+      <div class="bar"><span style="width:45%"></span></div>
+      <div class="bar warn"><span style="width:80%"></span></div>
+      <span class="cap">&lt; 80% akcent, ≥ 80% kolor błędu.</span>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="box"><h3>7. AppBar</h3>
+      <div class="appbar" style="border:1px solid var(--c-line);border-radius:8px"><div class="icon">≡</div><div class="title">Pulpit</div><div style="flex:1"></div><div class="icon">⋮</div></div>
+      <span class="cap">Warianty: <code>leading = menu | back</code>.</span>
+    </div>
+    <div class="box"><h3>8. TabBar</h3>
+      <div class="tabbar" style="border:1px solid var(--c-line);border-radius:8px"><div class="on"><span class="glyph"></span>Pulpit</div><div><span class="glyph"></span>Transakcje</div><div><span class="glyph"></span>Raport</div><div><span class="glyph"></span>Ustawienia</div></div>
+      <span class="cap">Wariant aktywnej zakładki jako właściwość komponentu.</span>
+    </div>
+    <div class="box"><h3>9. Modal</h3>
+      <div style="border:1px solid var(--c-line);border-radius:8px;padding:12px" class="col"><strong>Usunąć transakcję?</strong><span class="cap">tekst wyjaśnienia</span><div class="row"><button class="btn">Usuń</button><button class="btn btn--secondary">Anuluj</button></div></div>
+    </div>
+  </div>
+
+  <h1 style="margin-top:8px">Tokeny systemu projektowego</h1>
+  <div class="grid4">
+    <div class="box"><h3>Kolor</h3>
+      <div class="swatch" style="background:var(--c-accent)"></div><span class="cap"><code>color/accent #2E5AAC</code> — akcja główna, kontrast 7,0:1 na bieli</span>
+      <div class="swatch" style="background:var(--c-error)"></div><span class="cap"><code>color/error #B3261E</code> — walidacja, przekroczenie limitu</span>
+      <div class="swatch" style="background:var(--c-ink)"></div><span class="cap"><code>color/ink #1A1A1A</code> — tekst podstawowy</span>
+      <div class="swatch" style="background:var(--c-muted)"></div><span class="cap"><code>color/muted #6B6B6B</code> — tekst pomocniczy, 5,7:1</span>
+      <div class="swatch" style="background:var(--c-surface)"></div><span class="cap"><code>color/surface #F2F2F2</code></span>
+      <div class="swatch" style="background:var(--c-disabled-bg)"></div><span class="cap"><code>color/disabled #DCDCDC</code></span>
+    </div>
+    <div class="box"><h3>Typografia</h3>
+      <table>
+        <tr><th>token</th><th>rozmiar</th><th>użycie</th></tr>
+        <tr><td><code>text/display</code></td><td>30 px</td><td>kwota limitu</td></tr>
+        <tr><td><code>text/h1</code></td><td>24 px</td><td>kwota transakcji</td></tr>
+        <tr><td><code>text/h2</code></td><td>19 px</td><td>nagłówki sekcji</td></tr>
+        <tr><td><code>text/body</code></td><td>17 px</td><td>treść, pola</td></tr>
+        <tr><td><code>text/label</code></td><td>15 px</td><td>etykiety, komunikaty</td></tr>
+        <tr><td><code>text/caption</code></td><td>13 px</td><td>metadane</td></tr>
+      </table>
+      <span class="cap">Minimum 17 px dla treści — wymóg persony B (Henryk).</span>
+    </div>
+    <div class="box"><h3>Odstępy i kształt</h3>
+      <table>
+        <tr><th>token</th><th>wartość</th></tr>
+        <tr><td><code>space/1…6</code></td><td>4 · 8 · 12 · 16 · 24 · 32 px</td></tr>
+        <tr><td><code>radius/s · m</code></td><td>8 · 12 px</td></tr>
+        <tr><td><code>grid/columns</code></td><td>4 kolumny</td></tr>
+        <tr><td><code>grid/margin</code></td><td>16 px</td></tr>
+        <tr><td><code>grid/gutter</code></td><td>16 px</td></tr>
+        <tr><td><code>touch/min</code></td><td>48 × 48 px</td></tr>
+      </table>
+    </div>
+    <div class="box"><h3>Ruch (prototyp)</h3>
+      <table>
+        <tr><th>token</th><th>wartość</th><th>użycie</th></tr>
+        <tr><td><code>motion/fast</code></td><td>150 ms</td><td>modal, podpowiedź</td></tr>
+        <tr><td><code>motion/base</code></td><td>250 ms ease-out</td><td>drawer, przejścia ekranów</td></tr>
+        <tr><td><code>motion/slow</code></td><td>400 ms</td><td>zmiana widoku wykresu</td></tr>
+      </table>
+      <span class="cap">Jedna zmiana tokenu <code>motion/base</code> przestawia wszystkie przejścia prototypu.</span>
+    </div>
+  </div>
+</div></body></html>
