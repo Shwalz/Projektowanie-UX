@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budżet pod kontrolą: panel wydatków</title>
+<meta name="description" content="Responsywny i dostępny wycinek aplikacji do zarządzania domowym budżetem: panel wydatków z formularzem transakcji.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- skip link: pierwszy element w kolejności Tab -->
+<a class="skip-link" href="#main">Przejdź do treści głównej</a>
+
+<header class="site-header">
+  <div class="site-header__bar">
+    <p class="brand">
+      <!-- obraz dekoracyjny: nie niesie treści, ukryty przed czytnikiem ekranu -->
+      <img src="images/logo-mark.svg" alt="" aria-hidden="true" width="28" height="28">
+      <span class="brand__name">Budżet pod kontrolą</span>
+    </p>
+
+    <button type="button" id="navToggle" class="nav-toggle"
+            aria-expanded="false" aria-controls="mainNav">
+      <span class="nav-toggle__box" aria-hidden="true"></span>
+      Menu
+    </button>
+  </div>
+
+  <nav id="mainNav" class="main-nav" aria-label="Nawigacja główna">
+    <ul class="main-nav__list">
+      <li><a href="#main" aria-current="page">Pulpit</a></li>
+      <li><a href="#transakcje">Transakcje</a></li>
+      <li><a href="#faq">Pomoc</a></li>
+      <li><a href="#stopka">Ustawienia</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="layout">
+
+  <main id="main" class="content">
+    <h1>Panel wydatków, październik 2026</h1>
+    <p class="lede">
+      Limit miesięczny 2&nbsp;500&nbsp;zł. Wykorzystano 1&nbsp;980&nbsp;zł, zostało 520&nbsp;zł do 31 października.
+    </p>
+
+    <!-- ===== zakładki: obsługa strzałkami, roving tabindex ===== -->
+    <h2 id="podsumowanie-naglowek">Podsumowanie</h2>
+    <div class="tabs">
+      <div class="tabs__list" role="tablist" aria-labelledby="podsumowanie-naglowek">
+        <button type="button" class="tab" role="tab" id="tabLimit"
+                aria-selected="true" aria-controls="panelLimit">Limity</button>
+        <button type="button" class="tab" role="tab" id="tabKategorie"
+                aria-selected="false" tabindex="-1" aria-controls="panelKategorie">Kategorie</button>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panelLimit" aria-labelledby="tabLimit" tabindex="0">
+        <!-- komponent karty w szerokim kontenerze: układ dwukolumnowy -->
+        <div class="cards">
+          <div class="card-container">
+            <article class="card">
+              <div class="card__media">
+                <img src="images/chart-donut.svg" width="96" height="96"
+                     alt="Wykres pierścieniowy: 79 procent limitu miesięcznego wykorzystane.">
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Limit miesięczny</h3>
+                <p class="card__value">1&nbsp;980&nbsp;zł <span class="card__of">z 2&nbsp;500&nbsp;zł</span></p>
+                <p class="card__note">Zostało 520 zł na 12 dni. Ostrzeżenie wysyłamy po przekroczeniu 80%.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="card-container">
+            <article class="card">
+              <div class="card__media">
+                <img src="images/chart-bars.svg" width="96" height="96"
+                     alt="Wykres słupkowy: wydatki rosną w trzech kolejnych tygodniach miesiąca.">
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Największa kategoria</h3>
+                <p class="card__value">Jedzenie <span class="card__of">640&nbsp;zł</span></p>
+                <p class="card__note">O 90 zł więcej niż we wrześniu. Limit kategorii wynosi 700 zł.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panelKategorie" aria-labelledby="tabKategorie" tabindex="0" hidden>
+        <table class="data-table">
+          <caption>Wydatki według kategorii w październiku 2026</caption>
+          <thead>
+            <tr><th scope="col">Kategoria</th><th scope="col">Kwota</th><th scope="col">Limit</th><th scope="col">Stan</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Jedzenie</th><td>640 zł</td><td>700 zł</td><td>91% limitu</td></tr>
+            <tr><th scope="row">Dom</th><td>1 180 zł</td><td>1 200 zł</td><td>98% limitu</td></tr>
+            <tr><th scope="row">Transport</th><td>120 zł</td><td>300 zł</td><td>40% limitu</td></tr>
+            <tr><th scope="row">Subskrypcje</th><td>40 zł</td><td>100 zł</td><td>40% limitu</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== artykuł ===== -->
+    <article class="article" id="transakcje">
+      <h2>Jak liczymy próg 80% limitu</h2>
+      <p>
+        Próg ostrzeżenia liczymy osobno dla limitu miesięcznego i dla każdej kategorii. Powiadomienie
+        wychodzi raz, w chwili przekroczenia progu, a nie przy każdej kolejnej transakcji.
+      </p>
+      <h3>Co wpływa na wynik</h3>
+      <ul>
+        <li>Transakcje zaksięgowane do końca dnia poprzedniego.</li>
+        <li>Wpisy ręczne, które czekają na synchronizację, zaznaczone znacznikiem „offline”.</li>
+        <li>Zwroty, które pomniejszają sumę w dniu zaksięgowania.</li>
+      </ul>
+      <p class="article__figure">
+        <img src="images/limit-scale.svg" width="520" height="120"
+             alt="Skala limitu: odcinek do 80 procent oznaczony jako bezpieczny, powyżej jako ostrzeżenie.">
+      </p>
+    </article>
+
+    <!-- ===== akordeon FAQ: widget niestandardowy z obsługą ARIA ===== -->
+    <section class="faq" id="faq" aria-labelledby="faq-naglowek">
+      <h2 id="faq-naglowek">Najczęstsze pytania</h2>
+
+      <div class="accordion">
+        <h3 class="accordion__heading">
+          <button type="button" class="accordion__trigger" id="faq1-btn"
+                  aria-expanded="false" aria-controls="faq1-panel">
+            <span>Czy aplikacja łączy się z bankiem?</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="accordion__panel" id="faq1-panel" role="region" aria-labelledby="faq1-btn" hidden>
+          <p>Nie. Dane wpisujesz ręcznie albo wczytujesz z pliku CSV. Logowanie do banku nie jest wymagane na żadnym etapie.</p>
+        </div>
+
+        <h3 class="accordion__heading">
+          <button type="button" class="accordion__trigger" id="faq2-btn"
+                  aria-expanded="false" aria-controls="faq2-panel">
+            <span>Co się dzieje z wpisami bez internetu?</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="accordion__panel" id="faq2-panel" role="region" aria-labelledby="faq2-btn" hidden>
+          <p>Wpisy zapisują się na urządzeniu i wysyłają się same po powrocie zasięgu. Do tego czasu widać je ze znacznikiem „offline”.</p>
+        </div>
+
+        <h3 class="accordion__heading">
+          <button type="button" class="accordion__trigger" id="faq3-btn"
+                  aria-expanded="false" aria-controls="faq3-panel">
+            <span>Jak zmienić kategorię zaproponowaną automatycznie?</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="accordion__panel" id="faq3-panel" role="region" aria-labelledby="faq3-btn" hidden>
+          <p>Dotknij pozycji na liście, a potem przycisku „Zmień kategorię”. Korekta zajmuje dwa kliknięcia i nie wymaga wchodzenia w ustawienia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== formularz ===== -->
+    <section class="form-section" aria-labelledby="form-naglowek">
+      <h2 id="form-naglowek">Dodaj transakcję</h2>
+
+      <form id="txForm" novalidate>
+        <!-- zbiorczy komunikat o błędach, odczytywany przez czytnik ekranu -->
+        <div id="formErrors" class="form-errors" role="alert" hidden></div>
+
+        <div class="field">
+          <label for="txTitle">Opis transakcji <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="txTitle" name="title" required aria-required="true"
+                 autocomplete="off" aria-describedby="txTitleHelp">
+          <p class="help" id="txTitleHelp">Na przykład „Zakupy spożywcze”. Po opisie podpowiadamy kategorię.</p>
+        </div>
+
+        <div class="field">
+          <label for="txAmount">Kwota w złotych <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="txAmount" name="amount" inputmode="decimal" required aria-required="true"
+                 autocomplete="transaction-amount" aria-describedby="txAmountHelp">
+          <p class="help" id="txAmountHelp">Kwota z groszami po przecinku, na przykład 24,90.</p>
+        </div>
+
+        <div class="field">
+          <label for="txName">Imię i nazwisko</label>
+          <input type="text" id="txName" name="name" autocomplete="name"
+                 aria-describedby="txNameHelp">
+          <p class="help" id="txNameHelp">Pole opcjonalne. Pojawia się na potwierdzeniu wysyłanym e-mailem.</p>
+        </div>
+
+        <div class="field">
+          <label for="txEmail">Adres e-mail <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="txEmail" name="email" required aria-required="true"
+                 autocomplete="email" aria-describedby="txEmailHelp">
+          <p class="help" id="txEmailHelp">Na ten adres wyślemy potwierdzenie zapisu.</p>
+        </div>
+
+        <div class="field">
+          <label for="txCategory">Kategoria <span class="req" aria-hidden="true">*</span></label>
+          <select id="txCategory" name="category" required aria-required="true" aria-describedby="txCategoryHelp">
+            <option value="">Wybierz kategorię</option>
+            <option value="jedzenie">Jedzenie</option>
+            <option value="dom">Dom</option>
+            <option value="transport">Transport</option>
+            <option value="subskrypcje">Subskrypcje</option>
+            <option value="inne">Inne</option>
+          </select>
+          <p class="help" id="txCategoryHelp">Kategorię zmienisz później w szczegółach transakcji.</p>
+        </div>
+
+        <fieldset class="field">
+          <legend>Tryb zapisu <span class="req" aria-hidden="true">*</span></legend>
+          <p class="help" id="txModeHelp">Strzałkami w górę i w dół wybierasz tryb bez użycia myszy.</p>
+          <div class="radio-row">
+            <span class="radio">
+              <input type="radio" id="modeAuto" name="mode" value="auto" checked
+                     aria-describedby="txModeHelp">
+              <label for="modeAuto">Automatyczny: kategorię podpowiada aplikacja</label>
+            </span>
+            <span class="radio">
+              <input type="radio" id="modeManual" name="mode" value="manual"
+                     aria-describedby="txModeHelp">
+              <label for="modeManual">Ręczny: wszystko wpisujesz sam</label>
+            </span>
+          </div>
+        </fieldset>
+
+        <div class="field field--check">
+          <input type="checkbox" id="txNotify" name="notify" value="yes">
+          <label for="txNotify">Powiadom mnie, gdy ta kategoria przekroczy 80% limitu</label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary">Zapisz transakcję</button>
+          <button type="reset" class="btn btn--secondary">Wyczyść formularz</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== panel boczny: ten sam komponent karty w wąskim kontenerze ===== -->
+  <aside class="sidebar" aria-labelledby="sidebar-naglowek">
+    <h2 id="sidebar-naglowek">Na skróty</h2>
+
+    <div class="card-container">
+      <article class="card">
+        <div class="card__media">
+          <img src="images/chart-donut.svg" width="96" height="96"
+               alt="Wykres pierścieniowy: 79 procent limitu miesięcznego wykorzystane.">
+        </div>
+        <div class="card__body">
+          <h3 class="card__title">Limit miesięczny</h3>
+          <p class="card__value">1&nbsp;980&nbsp;zł <span class="card__of">z 2&nbsp;500&nbsp;zł</span></p>
+          <p class="card__note">Ta sama karta w węższym kontenerze układa się pionowo.</p>
+        </div>
+      </article>
+    </div>
+
+    <h3>Ostatnie wpisy</h3>
+    <ul class="mini-list">
+      <li><span>Czynsz</span> <span>1 180,00 zł</span></li>
+      <li><span>Zakupy spożywcze</span> <span>86,40 zł</span></li>
+      <li><span>Bilet miesięczny</span> <span>120,00 zł</span></li>
+    </ul>
+
+    <button type="button" class="btn btn--secondary" id="openHelp">Pokaż zasady limitu</button>
+  </aside>
+</div>
+
+<footer class="site-footer" id="stopka">
+  <h2 class="visually-hidden">Informacje o stronie</h2>
+  <p>Projekt studencki, Projektowanie UX, laboratorium 6. Dane w panelu są przykładowe.</p>
+  <p>Kontrast tekstu i wskaźnika skupienia sprawdzony względem kryteriów WCAG 2.1 na poziomie AA.</p>
+</footer>
+
+<!-- ===== okno dialogowe: drugi widget niestandardowy ===== -->
+<div class="modal-backdrop" id="modalBackdrop" hidden></div>
+<div class="modal" id="helpModal" role="dialog" aria-modal="true"
+     aria-labelledby="helpModalTitle" aria-describedby="helpModalDesc" hidden>
+  <h2 id="helpModalTitle">Zasady limitu miesięcznego</h2>
+  <p id="helpModalDesc">
+    Limit obejmuje wydatki zaksięgowane od pierwszego dnia miesiąca. Ostrzeżenie wysyłamy raz,
+    po przekroczeniu 80% kwoty. Limit zmienisz w ustawieniach, a zmiana działa od następnego dnia.
+  </p>
+  <div class="modal__actions">
+    <button type="button" class="btn btn--primary" id="modalClose">Zamknij</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

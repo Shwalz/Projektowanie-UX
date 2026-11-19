@@ -11,3 +11,4 @@ Autor: Yahor Falkouski
 | lab3 ([pdf](lab3/PUX_lab03_raport.pdf), [docx](lab3/PUX_lab03_raport.docx)) | Model szkieletowy interfejsu: makiety mid-fi, biblioteka komponentów, stany i prototyp |
 | lab4 ([pdf](lab4/PUX_lab04_raport.pdf), [docx](lab4/PUX_lab04_raport.docx)) | UX Writing: audyt językowy, matryca Voice & Tone, mikrocopy i testy czytelności |
 | lab5 ([pdf](lab5/PUX_lab05_raport.pdf), [docx](lab5/PUX_lab05_raport.docx)) | Elementy multimedialne i złudzenia optyczne: audio sterowane kliknięciem, wideo z paskiem przewijania, przyciski z gradientem |
+| lab6 ([pdf](lab6/PUX_lab06_raport.pdf), [docx](lab6/PUX_lab06_raport.docx)) | Zaawansowana responsywność i dostępność: container queries, widgety ARIA, dostępny formularz z walidacją |
