@@ -1,0 +1,73 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="copy.css"><title>Dark patterns: rezygnacja</title></head><body>
+<div class="sheetpage">
+  <h1>Eliminacja dark patterns: rezygnacja z planu Premium i usuwanie danych</h1>
+  <p class="lead">Manipulacja w tym oknie działa na trzech poziomach jednocześnie: języka (poczucie winy), typografii (jeden przycisk krzyczy, drugi szepcze) i kolejności (opcja korzystna dla firmy stoi pierwsza). Poprawa obejmuje wszystkie trzy poziomy, ponieważ neutralny tekst przy wyszarzonym przycisku pozostaje manipulacją.</p>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed: confirmshaming</span>
+      <div class="modal" style="width:390px">
+        <div class="h1">Czy na pewno chcesz nas zostawić i stracić dostęp do wszystkich swoich raportów?</div>
+        <span class="lab">Pomyśl, ile pracy włożyłeś w swój budżet. Twoje 4 lata historii i zebrane punkty przepadną bezpowrotnie!</span>
+        <button class="btn btn--trap block">Nie, zostaję i zachowuję super rabat!</button>
+        <button class="btn btn--ghosted">tak, rezygnuję</button>
+      </div>
+      <div class="why neg">Pytanie zakłada winę („zostawić nas”). Zdanie o bezpowrotnej utracie mija się z prawdą, bo dane zostają w systemie jeszcze 30 dni. Przycisk rezygnacji jest o połowę mniejszy, szary, zapisany małą literą i poniżej progu dotykowego 48 px. Rabat pojawia się dopiero w tym oknie, więc działa jak nagroda za próbę odejścia.</div>
+    </div>
+
+    <div class="box good">
+      <span class="tag good">Po: uczciwy i neutralny wybór</span>
+      <div class="modal" style="width:390px">
+        <div class="h1">Zrezygnować z Premium?</div>
+        <span class="lab">Co się stanie:</span>
+        <div class="col">
+          <span class="lab">• Premium działa do <b>31 października</b>, czyli opłacony okres wykorzystasz w całości.</span>
+          <span class="lab">• Od 1 listopada zostaje wersja bezpłatna: wszystkie transakcje i limity pozostają, znikają raporty roczne i eksport CSV.</span>
+          <span class="lab">• Dane możesz pobrać w każdej chwili, także po rezygnacji.</span>
+          <span class="lab">• Powrót do Premium zajmuje jedno dotknięcie, bez ponownej konfiguracji.</span>
+        </div>
+        <div class="row" style="gap:12px">
+          <button class="btn btn--secondary" style="flex:1">Rezygnuję z Premium</button>
+          <button class="btn" style="flex:1">Zostaję w Premium</button>
+        </div>
+        <button class="btn btn--text block">Pobierz moje dane (CSV)</button>
+      </div>
+      <div class="why">Nagłówek pyta o fakt. Miejsce straszenia zajmuje lista czterech skutków z datami. Oba przyciski mają ten sam rozmiar, ten sam stopień pisma i cel dotykowy 48 px, a różni je wariant komponentu. Akcja wychodząca stoi w tym samym oknie, bez dodatkowego kroku.</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed: dwuznaczne przyciski</span>
+      <div class="modal" style="width:390px">
+        <div class="h2">Czy na pewno chcesz anulować subskrypcję?</div>
+        <div class="row" style="gap:12px"><button class="btn btn--secondary" style="flex:1">Anuluj</button><button class="btn" style="flex:1">OK</button></div>
+      </div>
+      <div class="why neg">„Anuluj” może znaczyć „anuluj subskrypcję” albo „anuluj to okno”, a „OK” pomija przedmiot zgody. Przy pytaniu o nieodwracalne skutki taka dwuznaczność kosztuje dane.</div>
+    </div>
+    <div class="box good">
+      <span class="tag good">Po: etykiety opisujące skutek</span>
+      <div class="modal" style="width:390px">
+        <div class="h2">Usunąć transakcję z 2 października na 1 180 zł?</div>
+        <span class="lab">Limit miesięczny przeliczy się od nowa. Przez 10 sekund po usunięciu będzie można cofnąć tę operację.</span>
+        <div class="row" style="gap:12px"><button class="btn btn--danger" style="flex:1">Usuń transakcję</button><button class="btn" style="flex:1">Zachowaj</button></div>
+      </div>
+      <div class="why">Pytanie zawiera datę i kwotę, więc widać, czego dotyczy. Etykiety nazywają konkretne działania, a „Zachowaj” rozstrzyga sytuację, w której „Anuluj” zostawiało wątpliwość. Skutek i ścieżkę wycofania opisuję przed decyzją.</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Lista kontrolna uczciwego komunikatu zastosowana w projekcie</h2>
+    <table>
+      <tr><th style="width:280px">Kryterium</th><th style="width:330px">Naruszenie w wersji „przed”</th><th>Rozwiązanie w wersji „po”</th></tr>
+      <tr><td>Brak poczucia winy (confirmshaming)</td><td>„Czy na pewno chcesz nas zostawić”, „Pomyśl, ile pracy włożyłeś”</td><td>Pytanie o fakt: „Zrezygnować z Premium?”</td></tr>
+      <tr><td>Równorzędność wizualna opcji</td><td>Przycisk 60 px, fiolet i cień wobec szarego tekstu 13 px</td><td>Oba przyciski 48 px, ten sam stopień pisma, warianty primary i secondary</td></tr>
+      <tr><td>Prawdziwość informacji o skutkach</td><td>„Przepadną bezpowrotnie!”, choć dane zostają 30 dni</td><td>Konkretne daty i zakres zmiany po rezygnacji</td></tr>
+      <tr><td>Jednoznaczność etykiet</td><td>[OK] [Anuluj] przy pytaniu o anulowanie</td><td>[Usuń transakcję] [Zachowaj], [Rezygnuję z Premium] [Zostaję w Premium]</td></tr>
+      <tr><td>Brak oferty-pułapki</td><td>Rabat ujawniany dopiero przy próbie odejścia</td><td>Zniżka roczna widoczna w cenniku dla wszystkich, nie jako nagroda za rezygnację</td></tr>
+      <tr><td>Symetria kosztu działania</td><td>Rezygnacja: 4 ekrany; zakup: 1 ekran</td><td>Rezygnacja i zakup po jednym oknie z jednym potwierdzeniem</td></tr>
+      <tr><td>Wyjście z danymi</td><td>Brak informacji o eksporcie</td><td>„Pobierz moje dane (CSV)” dostępne w tym samym oknie</td></tr>
+    </table>
+    <span class="cap">Kryteria opracowałem na podstawie wytycznych goodui.org oraz typologii dark patterns (confirmshaming, roach motel, misdirection). Lista stanowi warunek dopuszczenia nowego okna dialogowego do projektu.</span>
+  </div>
+</div></body></html>

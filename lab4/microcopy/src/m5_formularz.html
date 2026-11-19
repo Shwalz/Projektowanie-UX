@@ -1,0 +1,61 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="copy.css"><title>Formularze i mikro-wskazówki</title></head><body>
+<div class="sheetpage">
+  <h1>Komponent 3: formularze, podpowiedzi w polach i tooltipy</h1>
+  <p class="lead">Zasada: wymagania pokazuję, <b>zanim</b> użytkownik popełni błąd. Podpowiedź (placeholder) podaje przykład wartości i znika przy pisaniu, więc wymagania zapisałem w tekście pomocniczym pod polem, który zostaje na ekranie.</p>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed</span>
+      <div class="screen">
+        <div class="statusbar"><span>9:41</span><span>stan: po błędzie</span></div>
+        <div class="appbar"><div class="icon">←</div><div class="title">Konto firmowe</div></div>
+        <div class="body">
+          <div class="field is-error"><span class="lab">Hasło</span><div class="input row sb"><span>••••••</span><span>⚠</span></div><span class="msg err">ERR_AUTH_PASS_POLICY_VIOLATION_09</span></div>
+          <div class="field"><span class="lab">NIP</span><div class="input empty">Wpisz NIP</div></div>
+          <div class="field"><span class="lab">Limit miesięczny</span><div class="input empty">Wartość</div></div>
+          <div class="field"><span class="lab">Telefon</span><div class="input empty">Numer</div><span class="msg err">Błędny format</span></div>
+          <div class="spacer"></div>
+          <button class="btn block">Wyślij formularz</button>
+        </div>
+      </div>
+      <div class="why neg">Kod błędu zamiast wymagań hasła. Pole NIP bez wskazówki zostawia użytkownika z pytaniem o spacje, myślniki i przedrostek PL. Komunikat „Błędny format” pomija format.</div>
+    </div>
+
+    <div class="box good">
+      <span class="tag good">Po</span>
+      <div class="screen">
+        <div class="statusbar"><span>9:41</span><span>stan: w trakcie wpisywania</span></div>
+        <div class="appbar"><div class="icon">←</div><div class="title">Załóż konto firmowe</div></div>
+        <div class="body">
+          <div class="field is-ok"><span class="lab">Hasło</span><div class="input row sb"><span>••••••••••</span><span style="color:#2E7D32">✓</span></div>
+            <span class="msg">Min. 8 znaków, w tym wielka litera i cyfra.</span>
+            <div class="col" style="gap:4px"><div class="meter"><span style="width:100%"></span></div><span class="msg ok">Wszystkie trzy warunki spełnione.</span></div>
+          </div>
+          <div class="field is-focus"><span class="lab">NIP firmy <span class="help">?</span></span><div class="input">5252248481</div>
+            <div class="tooltip">10 cyfr, bez spacji i myślników. Przedrostek „PL” dodamy sami.<br>Numer znajdziesz na fakturze lub w CEIDG.</div>
+          </div>
+          <div class="field"><span class="lab">Limit miesięczny</span><div class="input empty">np. 2 500</div><span class="msg">Kwota w złotych. Możesz ją zmienić w każdej chwili.</span></div>
+          <div class="field"><span class="lab">Telefon</span><div class="input empty">500 600 700</div><span class="msg">9 cyfr, bez numeru kierunkowego kraju.</span></div>
+          <div class="spacer"></div>
+          <button class="btn block">Zakładam darmowe konto</button>
+        </div>
+      </div>
+      <div class="why">Wymagania pod polem widać od początku, a po spełnieniu warunków zmieniają się w potwierdzenie. Tooltip przy NIP-ie odpowiada na dwa pytania: jak sformatować numer i gdzie go znaleźć.</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Rejestr tekstów pomocniczych</h2>
+    <table>
+      <tr><th style="width:150px">Pole</th><th style="width:180px">Podpowiedź w polu</th><th style="width:300px">Tekst pomocniczy (stały)</th><th style="width:280px">Komunikat błędu</th><th>Uwaga</th></tr>
+      <tr><td>Hasło</td><td>brak</td><td>Min. 8 znaków, w tym wielka litera i cyfra.</td><td>Hasło jest za krótkie. Dodaj jeszcze 2 znaki.</td><td>Wskaźnik spełnienia warunków zamiast listy po błędzie</td></tr>
+      <tr><td>NIP</td><td>5252248481</td><td>10 cyfr, bez spacji i myślników. Przedrostek „PL” dodamy sami.</td><td>NIP ma 10 cyfr. Sprawdź, czy wszystkie zostały wpisane.</td><td>Tooltip dodaje, gdzie znaleźć numer</td></tr>
+      <tr><td>Kwota</td><td>24,90</td><td>Kwota w złotych, z groszami po przecinku.</td><td>Kwota musi być większa od zera. Wpisz ją w złotych, np. 24,90.</td><td>Klawiatura numeryczna, separator wstawiany automatycznie</td></tr>
+      <tr><td>Telefon</td><td>500 600 700</td><td>9 cyfr, bez numeru kierunkowego kraju.</td><td>Numer ma 9 cyfr, np. 500 600 700.</td><td>Spacje wstawia aplikacja, nie użytkownik</td></tr>
+      <tr><td>Opis transakcji</td><td>Zakupy w Biedronce</td><td>Po opisie podpowiadamy kategorię, zawsze możesz ją zmienić.</td><td>Podaj opis transakcji (min. 3 znaki).</td><td>Tekst tłumaczy, skąd bierze się autokategoryzacja</td></tr>
+      <tr><td>Data</td><td>02.10.2026</td><td>Domyślnie dzisiejsza. Dotknij, żeby wybrać inną.</td><td>Data jest z przyszłości. Wybierz dzisiejszą lub wcześniejszą.</td><td>Błąd nazywa powód odrzucenia daty</td></tr>
+      <tr><td>Limit kategorii</td><td>np. 600</td><td>Ostrzeżemy, gdy wykorzystasz 80% tej kwoty.</td><td>Limit nie może być niższy niż już wydane 640 zł.</td><td>Komunikat podaje wartość graniczną</td></tr>
+    </table>
+    <span class="cap">Tekst pomocniczy zapisałem stopniem 15 px (token <code>text/label</code>) i kolorem o kontraście 5,7:1, więc czyta się go na równi z treścią pola. Tooltip bywa niedostępny przy obsłudze klawiaturą i czytnikiem ekranu, dlatego powtarza wymaganie z tekstu pomocniczego.</span>
+  </div>
+</div></body></html>

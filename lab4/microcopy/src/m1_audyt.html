@@ -1,0 +1,58 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="copy.css"><title>Audyt językowy</title></head><body>
+<div class="sheetpage">
+  <h1>Audyt językowy: test zakreślacza na komunikatach aplikacji „Budżet pod kontrolą”</h1>
+  <p class="lead">Na <span class="hi-g">zielono</span> zaznaczyłem słowa niosące konkretną wartość lub instrukcję, na <span class="hi-r">czerwono</span> żargon, słowa zbędne, obwiniające albo budzące lęk. Reguła przyjęta w audycie: przewaga czerwieni oznacza, że komunikat trafia do przepisania.</p>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed · 1 zielone / 7 czerwonych</span>
+      <div class="h2"><span class="hi-r">Wystąpił błąd krytyczny</span> <span class="hi-r">auth_fail_0x892</span>. <span class="hi-r">Złe zapytanie.</span></div>
+      <div class="why neg">Żargon techniczny i kod błędu zamiast informacji. Słowo „krytyczny” wywołuje lęk, a komunikat pomija odpowiedź na pytanie „co mam zrobić?”.</div>
+    </div>
+    <div class="box good">
+      <span class="tag good">Po · 9 zielonych / 0 czerwonych</span>
+      <div class="h2"><span class="hi-g">Nie udało się zalogować.</span> <span class="hi-g">E-mail lub hasło się nie zgadzają.</span> <span class="hi-g">Sprawdź pisownię i spróbuj ponownie</span> <span class="hi-g">lub ustaw nowe hasło.</span></div>
+      <div class="why">Co się stało, dlaczego, jak to naprawić. Kod <code>auth_fail_0x892</code> zostaje w logach dla wsparcia technicznego.</div>
+    </div>
+
+    <div class="box bad">
+      <span class="tag bad">Przed · 2 zielone / 9 czerwonych</span>
+      <div class="h2"><span class="hi-g">Wprowadź</span> <span class="hi-r">poprawne i bezpieczne</span> <span class="hi-g">hasło</span> <span class="hi-r">zgodne z polityką bezpieczeństwa firmy z 2024 r.</span></div>
+      <div class="why neg">Trzynaście słów bez jednego wymagania wobec hasła. Zdanie odsyła do dokumentu, którego użytkownik nie widzi.</div>
+    </div>
+    <div class="box good">
+      <span class="tag good">Po · 8 zielonych / 0 czerwonych</span>
+      <div class="h2"><span class="hi-g">Hasło: min. 8 znaków,</span> <span class="hi-g">w tym wielka litera i cyfra.</span></div>
+      <div class="why">Wymagania podane w miejscu i w chwili, w której stają się potrzebne: jako tekst pod polem, przed pierwszą próbą wpisania hasła.</div>
+    </div>
+
+    <div class="box bad">
+      <span class="tag bad">Przed · 1 zielone / 8 czerwonych</span>
+      <div class="h2"><span class="hi-r">Nieprawidłowo wypełniłeś pole.</span> <span class="hi-r">Błędny format danych wejściowych</span> (<span class="hi-r">pole: amount</span>).</div>
+      <div class="why neg">Obwinianie użytkownika („wypełniłeś”), nazwa pola z kodu, brak przykładu poprawnej wartości.</div>
+    </div>
+    <div class="box good">
+      <span class="tag good">Po · 10 zielonych / 0 czerwonych</span>
+      <div class="h2"><span class="hi-g">Kwota musi być większa od zera.</span> <span class="hi-g">Wpisz ją w złotych, np. 24,90.</span></div>
+      <div class="why">Opis zdarzenia bez podmiotu osobowego, nazwa pola w języku użytkownika, przykład poprawnej wartości.</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Wynik audytu: zestawienie ilościowe</h2>
+    <table>
+      <tr><th style="width:56px">Nr</th><th style="width:300px">Punkt styku</th><th style="width:150px">Typ problemu</th><th style="width:110px">Zielone / czerwone</th><th>Decyzja</th></tr>
+      <tr><td>A1</td><td>Błąd logowania</td><td>Żargon, lęk</td><td>1 / 7</td><td>Przepisany</td></tr>
+      <tr><td>A2</td><td>Wymagania hasła</td><td>Rozwlekłość</td><td>2 / 9</td><td>Przepisany</td></tr>
+      <tr><td>A3</td><td>Walidacja kwoty</td><td>Obwinianie</td><td>1 / 8</td><td>Przepisany</td></tr>
+      <tr><td>A4</td><td>Modal „Usunąć transakcję?” z przyciskami [OK] [Anuluj]</td><td>Dwuznaczność</td><td>2 / 4</td><td>Przepisany</td></tr>
+      <tr><td>A5</td><td>Rezygnacja z planu Premium</td><td>Dark pattern (confirmshaming)</td><td>0 / 11</td><td>Przepisany</td></tr>
+      <tr><td>A6</td><td>Pole NIP w formularzu konta firmowego</td><td>Brak pomocy kontekstowej</td><td>brak tekstu</td><td>Napisany od zera</td></tr>
+      <tr><td>A7</td><td>Pusta lista transakcji: „Brak elementów.”</td><td>Brak aktywacji</td><td>1 / 1</td><td>Napisany od zera</td></tr>
+      <tr><td>A8</td><td>Przycisk główny formularza: „Wyślij formularz”</td><td>Etykieta ogólna</td><td>1 / 1</td><td>Przepisany</td></tr>
+      <tr><td>A9</td><td>Toast po zapisie: „Operacja zakończona powodzeniem.”</td><td>Żargon systemowy</td><td>1 / 3</td><td>Przepisany</td></tr>
+      <tr><td>A10</td><td>Baner offline: „Brak połączenia z serwerem API.”</td><td>Żargon, pominięty skutek dla użytkownika</td><td>2 / 4</td><td>Przepisany</td></tr>
+    </table>
+    <span class="cap">Dziesięć komunikatów poddanych audytowi, dziesięć przepisanych. Średnia długość komunikatu błędu przed audytem: 11,4 słowa, po audycie: 13,1 słowa. Zwięzłość polega tu na usunięciu słów pustych i dodaniu kroku zaradczego.</span>
+  </div>
+</div></body></html>

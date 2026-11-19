@@ -1,0 +1,61 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="copy.css"><title>CTA przed i po</title></head><body>
+<div class="sheetpage">
+  <h1>Komponent 1: przyciski i wezwania do działania (CTA)</h1>
+  <p class="lead">Zasada przyjęta w projekcie: etykieta przycisku zaczyna się od czasownika w pierwszej osobie liczby pojedynczej lub w trybie rozkazującym i mówi, co stanie się po kliknięciu. Etykieta uzupełnia nagłówek i pozostaje zrozumiała czytana samodzielnie.</p>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed</span>
+      <div class="screen">
+        <div class="statusbar"><span>9:41</span><span>formularz konta</span></div>
+        <div class="appbar"><div class="icon">←</div><div class="title">Rejestracja</div></div>
+        <div class="body">
+          <div class="field"><span class="lab">E-mail</span><div class="input">k.nowak@example.com</div></div>
+          <div class="field"><span class="lab">Hasło</span><div class="input">••••••••</div></div>
+          <div class="field"><span class="lab">NIP</span><div class="input empty">Wpisz dane</div></div>
+          <div class="col">
+            <button class="btn block">Wyślij formularz</button>
+            <button class="btn btn--secondary block">Dalej</button>
+            <button class="btn btn--text">OK</button>
+          </div>
+          <span class="cap">„Wyślij formularz” opisuje operację systemu, a „Dalej” i „OK” pomijają skutek kliknięcia.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="box good">
+      <span class="tag good">Po</span>
+      <div class="screen">
+        <div class="statusbar"><span>9:41</span><span>formularz konta</span></div>
+        <div class="appbar"><div class="icon">←</div><div class="title">Załóż konto firmowe</div></div>
+        <div class="body">
+          <div class="field"><span class="lab">E-mail</span><div class="input">k.nowak@example.com</div></div>
+          <div class="field"><span class="lab">Hasło</span><div class="input">••••••••</div></div>
+          <div class="field"><span class="lab">NIP</span><div class="input empty">10 cyfr, np. 5252248481</div></div>
+          <div class="col">
+            <button class="btn block">Zakładam darmowe konto</button>
+            <span class="cap">Bez karty płatniczej. Konto możesz usunąć w każdej chwili.</span>
+            <button class="btn btn--secondary block">Zapisz i dokończ później</button>
+          </div>
+          <span class="cap">Etykieta mówi o korzyści i o zobowiązaniu, a tekst pod przyciskiem zdejmuje dwie najczęstsze obawy przed rejestracją.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Rejestr etykiet CTA w projekcie</h2>
+    <table>
+      <tr><th style="width:230px">Kontekst</th><th style="width:230px">Przed</th><th style="width:270px">Po</th><th>Uzasadnienie</th></tr>
+      <tr><td>Rejestracja konta</td><td>Wyślij formularz</td><td>Zakładam darmowe konto</td><td>Nazywa rezultat (konto) i jego koszt (darmowe)</td></tr>
+      <tr><td>Zapis transakcji</td><td>OK</td><td>Zapisz transakcję</td><td>„OK” pomija informację o zapisie do budżetu</td></tr>
+      <tr><td>Modal usunięcia</td><td>[OK] [Anuluj]</td><td>[Usuń transakcję] [Zachowaj]</td><td>Usuwa dwuznaczność: „Anuluj” mogło znaczyć „anuluj transakcję” albo „anuluj usuwanie”</td></tr>
+      <tr><td>Ustawienie limitu</td><td>Zatwierdź</td><td>Ustaw limit 2 500 zł</td><td>Powtórzenie wartości chroni przed zatwierdzeniem omyłkowej kwoty</td></tr>
+      <tr><td>Onboarding, krok 3/3</td><td>Dalej</td><td>Wybieram tryb ręczny</td><td>Decyzja o trybie pracy przesądza o pracy persony B, więc przycisk ją nazywa</td></tr>
+      <tr><td>Synchronizacja po offline</td><td>Ponów</td><td>Wyślij 3 zapisane transakcje</td><td>Liczba mnoga z konkretem zamiast operacji technicznej</td></tr>
+      <tr><td>Eksport danych</td><td>Eksportuj</td><td>Pobierz plik CSV (październik)</td><td>Format i zakres danych widoczne przed kliknięciem</td></tr>
+      <tr><td>Rezygnacja z Premium</td><td>Anuluj subskrypcję</td><td>Rezygnuję z Premium od 1 listopada</td><td>Data pokazuje, że dostęp zostaje do końca opłaconego okresu</td></tr>
+    </table>
+    <span class="cap">Przyciski drugorzędne różnią się od głównych wariantem komponentu (secondary, text) przy zachowanej widoczności i celu dotykowym 48 × 48 px z laboratorium 3.</span>
+  </div>
+</div></body></html>

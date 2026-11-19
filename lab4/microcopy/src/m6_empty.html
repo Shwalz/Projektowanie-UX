@@ -1,0 +1,81 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="copy.css"><title>Empty state i onboarding</title></head><body>
+<div class="sheetpage">
+  <h1>Komponent 4: ekran pusty (empty state) i onboarding</h1>
+  <p class="lead">Ekran pusty otwiera pracę nowego użytkownika, więc zapowiada przyszłą zawartość i proponuje jedno działanie. Struktura: nagłówek mówiący, co się tu pojawi, zdanie o korzyści, akcja główna oraz droga zapasowa.</p>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed</span>
+      <div class="screen tall">
+        <div class="statusbar"><span>9:41</span><span>lista transakcji</span></div>
+        <div class="appbar"><div class="icon">≡</div><div class="title">Transakcje</div></div>
+        <div class="body">
+          <div class="empty"><div class="glyph">∅</div><div class="h2">Brak elementów.</div></div>
+          <div class="spacer"></div>
+        </div>
+      </div>
+      <div class="why neg">Dwa słowa zostawiają użytkownika z pytaniem, czy widzi awarię, czy stan normalny, i bez propozycji działania. Osoba, która dopiero założyła konto, nie wie, od czego zacząć.</div>
+    </div>
+
+    <div class="box good">
+      <span class="tag good">Po redakcji: ekran pusty</span>
+      <div class="screen tall">
+        <div class="statusbar"><span>9:41</span><span>lista transakcji</span></div>
+        <div class="appbar"><div class="icon">≡</div><div class="title">Transakcje</div></div>
+        <div class="body">
+          <div class="empty">
+            <div class="glyph">+</div>
+            <div class="h1">Tu pojawią się Twoje wydatki</div>
+            <span class="lab">Dodaj pierwszy, a od razu zobaczysz, ile zostaje do końca miesiąca. Zajmie to mniej niż minutę.</span>
+            <button class="btn">Dodaj pierwszy wydatek</button>
+            <button class="btn btn--text">Mam wyciąg z banku, wczytam plik</button>
+          </div>
+          <div class="banner info">ⓘ Nic nie zgubisz: wpisy zapisują się na telefonie, nawet bez internetu.</div>
+          <div class="spacer"></div>
+        </div>
+      </div>
+      <div class="why">Nagłówek nazywa przyszłą zawartość, zdanie pod nim podaje korzyść i koszt czasowy (kryterium „wpis poniżej minuty” z laboratorium 1), akcja główna zostaje jedna, a droga zapasowa obsługuje osoby z gotowym wyciągiem.</div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="box">
+      <span class="tag">Onboarding 1/3</span>
+      <div class="h2">Zobacz, ile naprawdę zostaje Ci na miesiąc</div>
+      <span class="lab">Wpisujesz wydatki, a aplikacja liczy, ile możesz jeszcze wydać. Bez logowania do banku.</span>
+      <button class="btn block">Zaczynamy</button>
+      <span class="cap">Nagłówek obiecuje korzyść, a zdanie o braku logowania do banku odpowiada na najczęstszą obawę z badania z laboratorium 1.</span>
+    </div>
+    <div class="box">
+      <span class="tag">Onboarding 2/3</span>
+      <div class="h2">Wybierz, jak chcesz pracować</div>
+      <div class="col">
+        <div class="box" style="padding:12px"><b>Automatycznie</b><span class="cap">Podpowiadamy kategorie, Ty tylko potwierdzasz.</span></div>
+        <div class="box" style="padding:12px"><b>Ręcznie</b><span class="cap">Wszystko wpisujesz sam. Nic nie dzieje się bez Twojej zgody.</span></div>
+      </div>
+      <button class="btn block">Wybieram tryb ręczny</button>
+      <span class="cap">Obie opcje mają opis tej samej szczegółowości i tę samą formę wizualną.</span>
+    </div>
+    <div class="box">
+      <span class="tag">Onboarding 3/3</span>
+      <div class="h2">Ustaw limit na miesiąc</div>
+      <div class="field"><span class="lab">Limit miesięczny</span><div class="input empty">np. 2 500</div><span class="msg">Ostrzeżemy, gdy wykorzystasz 80% tej kwoty.</span></div>
+      <button class="btn block">Ustaw limit 2 500 zł</button>
+      <button class="btn btn--text block">Ustawię później</button>
+      <span class="cap">Krok pomija się przyciskiem „Ustawię później”, który mówi o zamiarze użytkownika i nie obarcza go winą.</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Pozostałe stany puste w projekcie</h2>
+    <table>
+      <tr><th style="width:230px">Miejsce</th><th style="width:230px">Przed</th><th style="width:330px">Po: nagłówek i zdanie</th><th>Akcja</th></tr>
+      <tr><td>Lista transakcji (nowe konto)</td><td>Brak elementów.</td><td>Tu pojawią się Twoje wydatki. Dodaj pierwszy, a od razu zobaczysz, ile zostaje do końca miesiąca.</td><td>Dodaj pierwszy wydatek</td></tr>
+      <tr><td>Wyniki wyszukiwania</td><td>Brak wyników.</td><td>Nie znaleźliśmy transakcji ze słowem „Biedronla”. Sprawdź pisownię albo poszerz zakres dat.</td><td>Szukaj w całym roku</td></tr>
+      <tr><td>Raport miesięczny bez danych</td><td>Brak danych do wyświetlenia.</td><td>Październik jest jeszcze pusty. Raport powstanie po pierwszych wydatkach.</td><td>Zobacz raport z września</td></tr>
+      <tr><td>Kategoria bez wydatków</td><td>0 pozycji.</td><td>W tej kategorii nic jeszcze nie wydałeś w tym miesiącu. Limit 600 zł pozostaje nienaruszony.</td><td>stan pozytywny, bez akcji</td></tr>
+      <tr><td>Brak powiadomień</td><td>Brak powiadomień.</td><td>Na razie cisza. Odezwiemy się, gdy limit zbliży się do 80%.</td><td>Ustaw powiadomienia</td></tr>
+    </table>
+    <span class="cap">Stan pusty, który niesie dobrą wiadomość (kategoria bez wydatków), zostaje bez wezwania do działania, ponieważ zachęta do wydawania pieniędzy kłóci się z celem produktu.</span>
+  </div>
+</div></body></html>

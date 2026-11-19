@@ -1,0 +1,47 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="copy.css"><title>Błędy i powiadomienia</title></head><body>
+<div class="sheetpage">
+  <h1>Komponent 2: komunikaty błędów i powiadomienia (toasty)</h1>
+  <p class="lead">Komunikaty o błędzie mają trzy części: <b>co się stało</b>, <b>dlaczego</b>, <b>jak to naprawić</b>. Część drugą pomijam, gdy przyczyna nic nie wnosi dla użytkownika. Części pierwsza i trzecia zostają w każdym komunikacie, a opis błędu prowadzę bezosobowo.</p>
+
+  <div class="grid2">
+    <div class="box bad">
+      <span class="tag bad">Przed</span>
+      <div class="col" style="gap:16px">
+        <div class="banner">⚠ Wystąpił błąd krytyczny auth_fail_0x892. Złe zapytanie.</div>
+        <div class="banner">⚠ Nieprawidłowo wypełniłeś pole (pole: amount).</div>
+        <div class="banner">⚠ Brak połączenia z serwerem API.</div>
+        <div class="toast err"><span>ERR_SYNC_TIMEOUT_31</span><span class="act">OK</span></div>
+        <div class="toast"><span>Operacja zakończona powodzeniem.</span><span class="act">OK</span></div>
+      </div>
+      <div class="why neg">Kody błędów na ekranie, obwinianie użytkownika, nazwa pola z kodu, żargon („serwer API”, „zapytanie”), pominięta informacja o losie danych i pominięty krok zaradczy. Jedyna dostępna reakcja, czyli „OK”, nie zmienia sytuacji.</div>
+    </div>
+
+    <div class="box good">
+      <span class="tag good">Po</span>
+      <div class="col" style="gap:16px">
+        <div class="banner"><span>⚠</span><span><b>Nie udało się zalogować.</b><br>E-mail lub hasło się nie zgadzają. Sprawdź pisownię albo ustaw nowe hasło.</span></div>
+        <div class="banner"><span>⚠</span><span><b>Kwota musi być większa od zera.</b><br>Wpisz ją w złotych, np. 24,90.</span></div>
+        <div class="banner info"><span>ⓘ</span><span><b>Pracujesz bez internetu.</b><br>Widzisz dane z 2 października, 9:12. Nowe wpisy zapiszą się na telefonie i wyślą się same po powrocie zasięgu.</span></div>
+        <div class="toast err"><span>Nie wysłano 3 transakcji, zabrakło zasięgu. Są zapisane na telefonie.</span><span class="act">Spróbuj teraz</span></div>
+        <div class="toast ok"><span>Zapisano 24,90 zł w kategorii Jedzenie.</span><span class="act">Cofnij</span></div>
+      </div>
+      <div class="why">Komunikat nazywa zdarzenie, skutek dla danych użytkownika i jedną czynność do wykonania. Toast potwierdzający podaje kwotę i kategorię, więc pozwala wychwycić pomyłkę bez wchodzenia w szczegóły, i daje ścieżkę cofnięcia, której oczekuje persona B.</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Szablon i rejestr komunikatów</h2>
+    <table>
+      <tr><th style="width:190px">Zdarzenie</th><th style="width:250px">Co się stało</th><th style="width:270px">Dlaczego</th><th style="width:230px">Jak to naprawić</th><th>Kanał i czas</th></tr>
+      <tr><td>Błąd logowania</td><td>Nie udało się zalogować.</td><td>E-mail lub hasło się nie zgadzają.</td><td>Sprawdź pisownię albo ustaw nowe hasło.</td><td>Baner nad formularzem, stały</td></tr>
+      <tr><td>Walidacja kwoty</td><td>Kwota musi być większa od zera.</td><td>przyczyna oczywista</td><td>Wpisz ją w złotych, np. 24,90.</td><td>Pod polem, do poprawy</td></tr>
+      <tr><td>Brak sieci</td><td>Pracujesz bez internetu.</td><td>Widzisz dane z 2 października, 9:12.</td><td>Nic nie musisz robić, wpisy wyślą się same.</td><td>Baner info, do powrotu zasięgu</td></tr>
+      <tr><td>Nieudana synchronizacja</td><td>Nie wysłano 3 transakcji.</td><td>Brak zasięgu przy ostatniej próbie.</td><td>Spróbuj teraz.</td><td>Toast 8 s + ikona w pasku</td></tr>
+      <tr><td>Błąd autokategoryzacji</td><td>Kategoria została zgadnięta automatycznie.</td><td>Opis pasował do dwóch kategorii.</td><td>Sprawdź i zmień jednym dotknięciem.</td><td>Znacznik „auto” przy pozycji</td></tr>
+      <tr><td>Przekroczenie limitu</td><td>Limit na Jedzenie wyczerpany w 80%.</td><td>Zostało 240 zł do 31 października.</td><td>Podnieś limit albo zobacz, co go wykorzystało.</td><td>Karta na pulpicie</td></tr>
+      <tr><td>Zapis udany</td><td>Zapisano 24,90 zł w kategorii Jedzenie.</td><td>brak</td><td>Cofnij (10 s).</td><td>Toast 10 s</td></tr>
+      <tr><td>Błąd serwera</td><td>Nie udało się zapisać transakcji.</td><td>Problem jest po naszej stronie.</td><td>Dane zostały zapisane na telefonie. Ponowimy wysyłkę za chwilę.</td><td>Toast 8 s, automatyczne ponowienie</td></tr>
+    </table>
+    <span class="cap">Kody techniczne (<code>auth_fail_0x892</code>, <code>ERR_SYNC_TIMEOUT_31</code>) trafiają do logu diagnostycznego w Ustawieniach, wraz z przyciskiem „Wyślij raport do pomocy”. Użytkownik nie musi ich czytać, a wsparcie techniczne wciąż nimi dysponuje.</span>
+  </div>
+</div></body></html>
