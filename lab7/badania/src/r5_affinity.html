@@ -1,0 +1,70 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="research.css"><title>Diagram pokrewieństwa</title></head><body>
+<div class="sheetpage">
+  <h1>Od obserwacji do wniosków: diagram pokrewieństwa</h1>
+  <p class="lead">Żółte karteczki to surowe fakty z sesji: co uczestnik zrobił i co powiedział. Klastry powstały przez grupowanie faktów o wspólnej przyczynie, a zielona ramka pod każdym klastrem zawiera wniosek (UX insight), czyli zdanie, które da się przełożyć na decyzję projektową.</p>
+
+  <div class="grid3a">
+    <div class="cluster">
+      <h3>K1. Informacja zwrotna poza polem widzenia</h3>
+      <div class="note-card">P5 (Z2): trzy naciśnięcia „Zapisz”, brak reakcji, „chyba aplikacja się zawiesiła”</div>
+      <div class="note-card">P5 (Z2): komunikat zbiorczy czekał nad formularzem, poza ekranem</div>
+      <div class="note-card">P5 (Z4): „nie widzę, które pole jest złe”, 18 s przewijania</div>
+      <div class="note-card">P4 (Z2): przewinął w górę dopiero po 40 s, przypadkiem</div>
+      <div class="insight">Wniosek: na telefonie odpowiedź systemu musi pojawić się w miejscu, które użytkownik właśnie dotknął, a nie na górze formularza. Przeniesienie fokusu działa dla klawiatury, lecz nie zastępuje widocznego sygnału przy przycisku.</div>
+    </div>
+
+    <div class="cluster">
+      <h3>K2. Decyzja algorytmu jest niewidoczna</h3>
+      <div class="note-card">Żaden z 4 uczestników nie wspomniał znacznika „auto” z własnej inicjatywy</div>
+      <div class="note-card">P4 (Z3): „skoro aplikacja wpisała kategorię, to zmienia się ją w ustawieniach”</div>
+      <div class="note-card">P2 (Z3): poprawiła kategorię, bo nie pasowała do opisu, nie z powodu znacznika</div>
+      <div class="note-card">P3 (Z3): zapytana o znacznik, określiła go jako „ozdobnik”</div>
+      <div class="insight">Wniosek: etykieta stanu nie wywołuje działania. Oznaczenie decyzji algorytmu musi nazywać czynność, którą użytkownik może wykonać, i stać w miejscu tej czynności.</div>
+    </div>
+
+    <div class="cluster">
+      <h3>K3. Dwie drogi do tego samego celu</h3>
+      <div class="note-card">P5 (Z3): wybrał „Edytuj transakcję”, cztery kliknięcia zamiast dwóch</div>
+      <div class="note-card">P2 i P3 (Z3): skorzystały z przycisku „Zmień” przy kategorii, dwa kliknięcia</div>
+      <div class="note-card">P5 (Z3): po zapisie wrócił sprawdzić, czy zmiana nie dotknęła kwoty</div>
+      <div class="insight">Wniosek: dwie równoważne ścieżki korekty dzielą uwagę i wydłużają zadanie. Droga krótsza musi być wyraźniejsza, a dłuższa prowadzić do tego samego ekranu bez dodatkowego potwierdzania.</div>
+    </div>
+
+    <div class="cluster">
+      <h3>K4. Niepewność o los wpisanych danych</h3>
+      <div class="note-card">P5 (Z5): „zamknę okno, ale czy to, co wpisałam, przepadnie?”</div>
+      <div class="note-card">P5 (Z5): po zamknięciu okna wyczyścił formularz i zaczął od nowa</div>
+      <div class="note-card">P4 (Z5): przed otwarciem okna zapisał kwotę na kartce</div>
+      <div class="insight">Wniosek: nakładka otwierana w trakcie wypełniania formularza musi powiedzieć, że dane zostają. Brak takiej informacji kosztuje powtórzenie całego zadania.</div>
+    </div>
+
+    <div class="cluster">
+      <h3>K5. Format danych odkrywany przez błąd</h3>
+      <div class="note-card">P4 i P5 (Z2): wpisali „86,40 zł” razem z jednostką</div>
+      <div class="note-card">P2 (Z2): wpisała „86.40” z kropką, poprawiła po komunikacie</div>
+      <div class="note-card">P3 (Z4): „pisze, ile ma być i podaje przykład, to proste”</div>
+      <div class="insight">Wniosek: podpowiedź formatu czytana jest dopiero wtedy, gdy stoi przy polu przed wpisaniem wartości. Komunikat po błędzie działa, ale koszt ponosi użytkownik.</div>
+    </div>
+
+    <div class="cluster">
+      <h3>K6. Pulpit spełnia swoją rolę</h3>
+      <div class="note-card">P4 (Z1): „tu od razu widać, ile zostało”, odczyt w 21 s</div>
+      <div class="note-card">Wszystkie sesje: Z1 ukończone bez pomocy, średnia SEQ 6,6</div>
+      <div class="note-card">P2 (K4): oczekuje, że nowy wpis pojawi się na liście od razu po zapisie</div>
+      <div class="insight">Wniosek: układ pulpitu z laboratorium 3 nie wymaga zmian. Brakuje jedynie widocznego potwierdzenia skutku zapisu na liście transakcji.</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Podsumowanie syntezy</h2>
+    <table>
+      <tr><th style="width:70px">Klaster</th><th style="width:300px">Wniosek</th><th style="width:150px">Dotyczy person</th><th>Przełożenie na problem</th></tr>
+      <tr><td>K1</td><td>Odpowiedź systemu musi pojawiać się przy miejscu działania</td><td>Głównie B, zauważone też u A</td><td>U1, U4</td></tr>
+      <tr><td>K2</td><td>Stan algorytmu wymaga czasownika, nie etykiety</td><td>A i B</td><td>U2</td></tr>
+      <tr><td>K3</td><td>Krótsza ścieżka korekty musi być wyraźniejsza</td><td>B</td><td>U3</td></tr>
+      <tr><td>K4</td><td>Nakładka ma informować o zachowaniu danych</td><td>B</td><td>U5</td></tr>
+      <tr><td>K5</td><td>Format podawany przed wpisaniem, nie po błędzie</td><td>A i B</td><td>U6</td></tr>
+      <tr><td>K6</td><td>Pulpit działa, brakuje potwierdzenia na liście</td><td>A</td><td>U7</td></tr>
+    </table>
+  </div>
+</div></body></html>

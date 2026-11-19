@@ -1,0 +1,80 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="research.css"><title>Scenariusz testu</title></head><body>
+<div class="sheetpage">
+  <h1>Scenariusz moderowanego testu użyteczności</h1>
+  <p class="lead">Zadania opisują cel i sytuację, w której użytkownik się znajduje. Nie podają nazw przycisków ani kolejności kroków, ponieważ to właśnie znalezienie drogi jest przedmiotem pomiaru.</p>
+
+  <div class="box">
+    <h2>Wprowadzenie moderatora (czytane na głos)</h2>
+    <div class="why">„Dziękuję za udział. Testujemy aplikację, a nie Pani umiejętności, więc każda trudność, na którą Pani natrafi, jest dla nas cenną informacją. Poproszę o mówienie na głos wszystkiego, co przychodzi Pani do głowy: co Pani widzi, czego szuka, czego się spodziewa. Nie jestem autorem tego ekranu, więc proszę mówić szczerze. W dowolnym momencie możemy przerwać. Czy mogę nagrywać ekran i dźwięk?”</div>
+    <div class="legend"><span>Tempo: pauza po każdym poleceniu</span><span>Bez podpowiadania nazw elementów</span><span>Bez reakcji oceniających („dobrze”, „świetnie”)</span></div>
+  </div>
+
+  <div class="box">
+    <h2>Zadania oparte na celach</h2>
+    <table>
+      <tr><th style="width:52px">Nr</th><th style="width:330px">Polecenie dla uczestnika</th><th style="width:300px">Kryterium sukcesu</th><th>Mierzone</th></tr>
+      <tr><td>Z1</td><td>„Jest środek miesiąca. Chce Pani wiedzieć, ile jeszcze może wydać do końca października. Proszę to sprawdzić.”</td><td>Podaje kwotę 520 zł, korzystając z pulpitu, bez wchodzenia w listę transakcji</td><td>Czas, SEQ, miejsce odczytu</td></tr>
+      <tr><td>Z2</td><td>„Wraca Pani ze sklepu z paragonem na 86,40 zł za jedzenie. Proszę zapisać ten wydatek w aplikacji.”</td><td>Transakcja zapisana z poprawną kwotą i kategorią, potwierdzenie widoczne</td><td>Czas, skuteczność, SEQ, liczba pól wypełnionych ponownie</td></tr>
+      <tr><td>Z3</td><td>„Przegląda Pani ostatnie wpisy. Wydatek za bilet miesięczny trafił do kategorii Jedzenie. Proszę zrobić z tym, co uzna Pani za właściwe.”</td><td>Kategoria zmieniona na Transport w maksymalnie dwóch interakcjach, bez podpowiedzi</td><td>Skuteczność, liczba interakcji, SEQ, zauważenie znacznika „auto”</td></tr>
+      <tr><td>Z4</td><td>„Proszę zapisać wydatek 0 zł za kawę i dokończyć to, co aplikacja pokaże.”</td><td>Uczestnik odczytuje komunikat, poprawia kwotę i zapisuje transakcję bez pomocy</td><td>Czas od komunikatu do zapisu, SEQ, cytat o zrozumieniu komunikatu</td></tr>
+      <tr><td>Z5</td><td>„Zastanawia się Pani, skąd bierze się ostrzeżenie o 80% limitu. Proszę to sprawdzić, a potem wrócić do tego, co Pani robiła.”</td><td>Uczestnik znajduje wyjaśnienie, zamyka je i wraca do panelu wiedząc, że dane formularza zostały zachowane</td><td>Skuteczność, SEQ, wypowiedzi o losie danych</td></tr>
+    </table>
+    <span class="cap">Polecenia sformułowano bez czasowników z interfejsu. W Z3 świadomie użyto zwrotu „co uzna Pani za właściwe”, żeby nie zdradzić, że oczekujemy korekty: część uczestników może uznać, że kategoria jest poprawna, a to też jest wynikiem badania.</span>
+  </div>
+
+  <div class="grid2a">
+    <div class="box">
+      <h2>Pytanie SEQ po każdym zadaniu</h2>
+      <div class="why">„Jak łatwe lub trudne było wykonanie tego zadania?” Skala od 1 (bardzo trudne) do 7 (bardzo łatwe).</div>
+      <table>
+        <tr><th class="num" style="width:60px">1</th><th class="num" style="width:60px">2</th><th class="num" style="width:60px">3</th><th class="num" style="width:60px">4</th><th class="num" style="width:60px">5</th><th class="num" style="width:60px">6</th><th class="num" style="width:60px">7</th></tr>
+        <tr><td class="num">bardzo<br>trudne</td><td class="num"></td><td class="num"></td><td class="num">średnio</td><td class="num"></td><td class="num"></td><td class="num">bardzo<br>łatwe</td></tr>
+      </table>
+      <span class="cap">Pytanie zadajemy zaraz po zadaniu, zanim uczestnik usłyszy kolejne polecenie. Wynik poniżej 5,0 traktujemy jako sygnał bariery ergonomicznej i szukamy dla niego pokrycia w obserwacjach.</span>
+    </div>
+
+    <div class="box">
+      <h2>Protokół głośnego myślenia (CTA)</h2>
+      <table>
+        <tr><th style="width:220px">Sytuacja</th><th>Reakcja moderatora</th></tr>
+        <tr><td>Uczestnik milknie na 10 sekund</td><td>„Co teraz Panu chodzi po głowie?”</td></tr>
+        <tr><td>Uczestnik pyta „czy dobrze robię?”</td><td>„Proszę robić tak, jak uznaje Pan za naturalne. Zobaczymy, co się stanie.”</td></tr>
+        <tr><td>Uczestnik utknął ponad 90 sekund</td><td>Zapisujemy porażkę zadania, dopiero potem podajemy minimalną podpowiedź</td></tr>
+        <tr><td>Uczestnik pyta o nazwę elementu</td><td>„A czego by się Pan w tym miejscu spodziewał?”</td></tr>
+        <tr><td>Uczestnik komentuje wygląd</td><td>Notujemy jako preferencję, nie dopytujemy o powód</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid2a">
+    <div class="box bad">
+      <span class="tag bad">Pytania zakazane</span>
+      <div class="col">
+        <span class="lab">„Czy nie byłoby wygodniej, gdyby przycisk był tutaj?” — pytanie sugerujące rozwiązanie.</span>
+        <span class="lab">„Podoba się Pani ten ekran?” — odpowiedź kurtuazyjna, brak wartości diagnostycznej.</span>
+        <span class="lab">„Czy korzystał Pan kiedyś z takiej funkcji?” zadane w trakcie zadania — przerywa tok myślenia.</span>
+        <span class="lab">„Dlaczego Pan tam kliknął?” — brzmi jak ocena; zamiast tego: „Czego się Pan spodziewał po tym kroku?”</span>
+      </div>
+    </div>
+    <div class="box good">
+      <span class="tag good">Pytania zalecane</span>
+      <div class="col">
+        <span class="lab">„Czego się Pani spodziewa po tym elemencie?”</span>
+        <span class="lab">„Co to dla Pani znaczy?” przy komunikacie systemowym.</span>
+        <span class="lab">„Gdzie szukałaby Pani tej informacji najpierw?”</span>
+        <span class="lab">Po zadaniu: „Co było w tym zadaniu najtrudniejsze?”</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Rozmowa końcowa (5 minut)</h2>
+    <table>
+      <tr><th style="width:52px">Nr</th><th>Pytanie</th><th style="width:300px">Czemu służy</th></tr>
+      <tr><td>K1</td><td>Gdyby miał Pan opisać tę aplikację znajomemu jednym zdaniem, co by Pan powiedział?</td><td>Sprawdzenie, czy obietnica produktu dotarła</td></tr>
+      <tr><td>K2</td><td>Co w trakcie tych zadań zaskoczyło Pana najbardziej?</td><td>Wydobycie momentów niezgodnych z oczekiwaniem</td></tr>
+      <tr><td>K3</td><td>Czy jest coś, czego spodziewał się Pan w tej aplikacji, a czego Pan nie znalazł?</td><td>Luki funkcjonalne widziane z perspektywy zadania</td></tr>
+      <tr><td>K4</td><td>Gdyby mógł Pan zmienić jedną rzecz, co by to było?</td><td>Priorytet użytkownika, traktowany jako sygnał, nie jako rozwiązanie</td></tr>
+    </table>
+  </div>
+</div></body></html>

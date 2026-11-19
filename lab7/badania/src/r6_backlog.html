@@ -1,0 +1,52 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="research.css"><title>Waga problemów i backlog</title></head><body>
+<div class="sheetpage">
+  <h1>Waga problemów (skala Nielsena) i rekomendacje do backlogu</h1>
+  <p class="lead">Wagę nadawaliśmy po analizie wszystkich sesji, biorąc pod uwagę trzy czynniki: częstość wystąpienia, wpływ na ukończenie zadania oraz uporczywość, czyli to, czy problem znika po pierwszym zetknięciu.</p>
+
+  <div class="box">
+    <h2>Lista problemów</h2>
+    <table>
+      <tr><th style="width:52px">Nr</th><th style="width:300px">Problem</th><th style="width:150px">Dowód z sesji</th><th style="width:70px">Waga</th><th>Uzasadnienie wagi</th></tr>
+      <tr><td>U1</td><td>Komunikat o niewypełnionych polach pojawia się nad formularzem, poza widokiem przy przycisku „Zapisz”</td><td>P5: zadanie Z2 przerwane po 105 s; P4: 40 s błądzenia</td><td class="num"><span class="sev sev4">4</span></td><td>Uniemożliwia ukończenie podstawowego procesu aplikacji, czyli zapisu transakcji. Bloker wydania.</td></tr>
+      <tr><td>U2</td><td>Znacznik „auto” nie komunikuje, że kategorię zaproponował algorytm i że można ją zmienić</td><td>0 z 4 wzmianek samodzielnych; P4: porażka Z3</td><td class="num"><span class="sev sev3">3</span></td><td>Dotyczy funkcji wyróżniającej produkt i prowadzi do porażki zadania u persony B. Wysoki priorytet.</td></tr>
+      <tr><td>U3</td><td>Dwie równoważne ścieżki korekty kategorii, krótsza mniej widoczna</td><td>P5: 4 kliknięcia zamiast 2, SEQ 4</td><td class="num"><span class="sev sev3">3</span></td><td>Łamie kryterium „korekta w dwóch kliknięciach” przyjęte w laboratorium 1. Ryzyko frustracji przy powtarzalnej czynności.</td></tr>
+      <tr><td>U4</td><td>Po błędzie walidacji wskazanie miejsca błędu opiera się na fokusie, niewidocznym przy obsłudze dotykiem</td><td>P5: 18 s szukania pola, SEQ 5; mediana grupy B 34 s</td><td class="num"><span class="sev sev3">3</span></td><td>Wydłuża korektę powyżej progu z hipotezy H1 i dotyczy wszystkich formularzy w aplikacji.</td></tr>
+      <tr><td>U5</td><td>Okno „Zasady limitu” nie informuje, że dane wpisane w formularzu zostają zachowane</td><td>P5: porażka Z5, formularz wypełniany od nowa; P4: notatka na kartce</td><td class="num"><span class="sev sev2">2</span></td><td>Problem pojawia się w rzadszej ścieżce i da się obejść, ale kosztuje powtórzenie zadania.</td></tr>
+      <tr><td>U6</td><td>Format kwoty znany dopiero po komunikacie błędu</td><td>P2, P4, P5: wpisy z jednostką lub kropką</td><td class="num"><span class="sev sev2">2</span></td><td>Występuje często, lecz nie blokuje zadania: komunikat prowadzi do poprawy w kilkanaście sekund.</td></tr>
+      <tr><td>U7</td><td>Brak widocznego potwierdzenia na liście transakcji po zapisie</td><td>P2: przewijanie listy po zapisie; wypowiedź w rozmowie końcowej</td><td class="num"><span class="sev sev2">2</span></td><td>Nie przerywa zadania, ale pozostawia niepewność co do skutku akcji.</td></tr>
+      <tr><td>U8</td><td>Nagłówek panelu bocznego „Na skróty” nie zapowiada zawartości</td><td>P2 i P4 pominęli panel w zadaniu Z1</td><td class="num"><span class="sev sev1">1</span></td><td>Problem kosmetyczny: cel zadania osiągnięty inną drogą.</td></tr>
+      <tr><td>U9</td><td>Kolor wykresu pierścieniowego oceniony jako „zbyt stonowany”</td><td>P3, rozmowa końcowa</td><td class="num"><span class="sev sev0">0</span></td><td>Kwestia gustu, bez wpływu na wykonanie zadania. Nie wchodzi do backlogu.</td></tr>
+    </table>
+    <div class="legend">
+      <span><span class="sev sev0">0</span> brak problemu</span><span><span class="sev sev1">1</span> kosmetyczny</span>
+      <span><span class="sev sev2">2</span> drobny</span><span><span class="sev sev3">3</span> poważny</span><span><span class="sev sev4">4</span> katastrofa, bloker wydania</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Rekomendacje naprawcze</h2>
+    <table>
+      <tr><th style="width:52px">Nr</th><th style="width:330px">Rekomendacja</th><th style="width:110px">Priorytet</th><th style="width:110px">Koszt</th><th>Kryterium akceptacji</th></tr>
+      <tr><td>U1</td><td>Przenieść informację o niepowodzeniu zapisu pod przycisk „Zapisz” i zablokować przycisk dopiero po pokazaniu powodu; komunikat zbiorczy zostaje dla czytników ekranu</td><td>Przed wydaniem</td><td>1 dzień</td><td>Pięć z pięciu osób w retestcie podaje powód odmowy zapisu bez przewijania ekranu</td></tr>
+      <tr><td>U2</td><td>Zastąpić znacznik „auto” przyciskiem „Kategoria z podpowiedzi: Jedzenie. Zmień”, umieszczonym w wierszu transakcji</td><td>Przed wydaniem</td><td>2 dni</td><td>Co najmniej 80% uczestników koryguje kategorię bez podpowiedzi, mediana poniżej 40 s</td></tr>
+      <tr><td>U3</td><td>Zostawić jedną ścieżkę korekty: przycisk przy polu; „Edytuj transakcję” prowadzi do tego samego ekranu z aktywnym polem kategorii</td><td>Przed wydaniem</td><td>1 dzień</td><td>Korekta kategorii wykonywana w dwóch interakcjach przez wszystkich uczestników</td></tr>
+      <tr><td>U4</td><td>Dodać przewinięcie do pierwszego niepoprawnego pola wraz z podświetleniem tła przez 2 s, niezależnie od wskaźnika fokusu</td><td>Przed wydaniem</td><td>0,5 dnia</td><td>Mediana czasu korekty w grupie B poniżej 30 s, czyli próg z hipotezy H1</td></tr>
+      <tr><td>U5</td><td>Dopisać w oknie „Zasady limitu” zdanie „Twoje dane w formularzu zostają” i wrócić fokusem do pola, z którego otwarto okno</td><td>Następna iteracja</td><td>0,5 dnia</td><td>Żaden uczestnik nie rozpoczyna formularza od nowa po zamknięciu okna</td></tr>
+      <tr><td>U6</td><td>Przenieść przykład formatu do tekstu pomocniczego pod polem kwoty i przyjmować wpis z jednostką oraz z kropką</td><td>Następna iteracja</td><td>0,5 dnia</td><td>Zero komunikatów o formacie kwoty w retestcie</td></tr>
+      <tr><td>U7</td><td>Po zapisie pokazać nową pozycję na szczycie listy z podświetleniem i komunikatem „Zapisano. Cofnij” przez 10 s</td><td>Następna iteracja</td><td>1 dzień</td><td>Uczestnik wskazuje nowy wpis na liście w czasie poniżej 5 s</td></tr>
+      <tr><td>U8</td><td>Zmienić nagłówek panelu na „Podsumowanie miesiąca”</td><td>Gdy będzie czas</td><td>5 minut</td><td>Brak, zmiana redakcyjna</td></tr>
+    </table>
+    <span class="cap">Suma pracy dla pozycji oznaczonych „przed wydaniem” wynosi 4,5 dnia roboczego. Problem U1 o wadze 4 wstrzymuje wydanie do czasu poprawy i ponownego testu z dwiema osobami z grupy B.</span>
+  </div>
+
+  <div class="box">
+    <h2>Plan retestu</h2>
+    <table>
+      <tr><th style="width:180px">Element</th><th>Ustalenie</th></tr>
+      <tr><td>Zakres</td><td>Zadania Z2, Z3 i Z4, czyli te, w których wystąpiły problemy o wadze 3 i 4</td></tr>
+      <tr><td>Próba</td><td>5 nowych osób, w tym 3 z grupy B, bez udziału w pierwszej turze</td></tr>
+      <tr><td>Metryki</td><td>Te same progi: skuteczność 80%, Z2 poniżej 60 s, SEQ co najmniej 5,0, mediana korekty w grupie B poniżej 30 s</td></tr>
+      <tr><td>Warunek wydania</td><td>Zero problemów o wadze 4 oraz potwierdzenie hipotez H1 i H2 na poprawionym prototypie</td></tr>
+    </table>
+  </div>
+</div></body></html>

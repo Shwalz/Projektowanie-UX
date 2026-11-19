@@ -1,0 +1,75 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="research.css"><title>Plan badawczy</title></head><body>
+<div class="sheetpage">
+  <h1>Plan badawczy i hipotezy inżynierskie</h1>
+  <p class="lead">Przedmiotem badania jest prototyp aplikacji „Budżet pod kontrolą”, rozwijany od laboratorium 1: makiety z laboratorium 3, warstwa tekstowa z laboratorium 4 i działający wycinek interfejsu z laboratorium 6. Badanie sprawdza, czy kryteria przyjęte na początku projektu da się osiągnąć na gotowym prototypie.</p>
+
+  <div class="grid2a">
+    <div class="box">
+      <span class="tag">Kontekst</span>
+      <table>
+        <tr><th style="width:170px">Produkt</th><td>Aplikacja mobilna do zarządzania domowym budżetem, wersja prototypowa</td></tr>
+        <tr><th>Etap</th><td>Prototyp interaktywny przed pierwszym wydaniem</td></tr>
+        <tr><th>Zleceniodawca</th><td>Zespół projektowy, laboratorium 7</td></tr>
+        <tr><th>Metoda</th><td>Moderowany test użyteczności, zdalny, protokół głośnego myślenia (CTA)</td></tr>
+        <tr><th>Próba</th><td>5 uczestników: 3 z grupy A (persona Katarzyna), 2 z grupy B (persona Henryk)</td></tr>
+        <tr><th>Czas sesji</th><td>35 minut: 5 wprowadzenie, 25 zadania, 5 rozmowa końcowa</td></tr>
+        <tr><th>Role</th><td>Moderator i obserwator w parze, role zamieniane między sesjami</td></tr>
+      </table>
+    </div>
+    <div class="box">
+      <span class="tag">Cel badawczy i pytania</span>
+      <div class="why">Cel: sprawdzić, czy osoby z obu person wykonują wpis i korektę transakcji bez pomocy, w czasie przyjętym jako kryterium w laboratorium 1, oraz czy rozumieją komunikaty przeredagowane w laboratorium 4.</div>
+      <table>
+        <tr><th style="width:52px">Nr</th><th>Pytanie badawcze</th></tr>
+        <tr><td>P1</td><td>Czy użytkownik odczytuje stan limitu miesięcznego bez wchodzenia w szczegóły?</td></tr>
+        <tr><td>P2</td><td>Ile trwa dodanie transakcji od otwarcia panelu do potwierdzenia zapisu?</td></tr>
+        <tr><td>P3</td><td>Czy użytkownik zauważa, że kategoria pochodzi od algorytmu, i czy ją koryguje?</td></tr>
+        <tr><td>P4</td><td>Czy komunikat o błędzie walidacji prowadzi do poprawy danych bez pomocy moderatora?</td></tr>
+        <tr><td>P5</td><td>Czy użytkownik wie, co dzieje się z wpisanymi danymi po otwarciu okna z zasadami limitu?</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Hipotezy inżynierskie</h2>
+    <p class="lead">Szablon: Wierzymy, że <span class="slot">zmiana X</span> dla <span class="slot">grupy Y</span> spowoduje <span class="slot">mierzalny rezultat Z</span>, co zweryfikujemy za pomocą <span class="slot">metryki M</span>.</p>
+
+    <div class="hyp">
+      <b>H1</b>
+      <div>Wierzymy, że <span class="slot">komunikat błędu w układzie „co się stało, dlaczego, jak to naprawić” wraz z przeniesieniem fokusu na pierwsze niepoprawne pole</span> dla <span class="slot">osób z grupy B (60+, tryb ręczny)</span> spowoduje <span class="slot">skrócenie mediany czasu korekty błędu formularza poniżej 30 s przy zerowej liczbie podpowiedzi moderatora</span>, co zweryfikujemy za pomocą <span class="slot">mediany czasu od pojawienia się komunikatu do poprawnego zapisu (zadanie Z4)</span>.</div>
+    </div>
+
+    <div class="hyp">
+      <b>H2</b>
+      <div>Wierzymy, że <span class="slot">znacznik „auto” przy pozycjach skategoryzowanych przez algorytm</span> dla <span class="slot">osób z grupy A (tryb automatyczny)</span> spowoduje <span class="slot">wykrycie i poprawienie błędnej kategorii przez co najmniej 80% uczestników bez podpowiedzi</span>, co zweryfikujemy za pomocą <span class="slot">odsetka ukończeń zadania Z3 bez pomocy moderatora</span>.</div>
+    </div>
+
+    <div class="hyp">
+      <b>H3</b>
+      <div>Wierzymy, że <span class="slot">formularz ograniczony do czterech pól z kwotą aktywną jako pierwsza</span> dla <span class="slot">obu grup uczestników</span> spowoduje <span class="slot">dodanie transakcji w czasie poniżej 60 s przy skuteczności co najmniej 80%</span>, co zweryfikujemy za pomocą <span class="slot">mediany czasu zadania Z2 oraz odsetka ukończeń</span>.</div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Metryki i progi akceptacji</h2>
+    <table>
+      <tr><th style="width:180px">Metryka</th><th style="width:230px">Definicja operacyjna</th><th style="width:150px">Próg akceptacji</th><th>Źródło progu</th></tr>
+      <tr><td>Skuteczność zadania</td><td>Odsetek uczestników, którzy osiągnęli cel bez podpowiedzi</td><td>≥ 80%</td><td>Przyjęte dla prototypu przed wydaniem</td></tr>
+      <tr><td>Czas zadania</td><td>Od wypowiedzenia polecenia do potwierdzenia celu przez uczestnika</td><td>Z2 poniżej 60 s</td><td>Ankieta z laboratorium 1: 78% rezygnuje przy dłuższym wpisie</td></tr>
+      <tr><td>Liczba interakcji korekty</td><td>Dotknięcia od listy transakcji do zmiany kategorii</td><td>≤ 2</td><td>Kryterium z laboratorium 1 i 3</td></tr>
+      <tr><td>SEQ</td><td>Ocena trudności 1–7 zadawana zaraz po zadaniu</td><td>≥ 5,0</td><td>Próg sygnalizujący barierę ergonomiczną</td></tr>
+      <tr><td>Liczba podpowiedzi</td><td>Interwencje moderatora potrzebne do kontynuacji</td><td>0 na zadanie</td><td>Warunek samodzielności użytkownika</td></tr>
+      <tr><td>Waga problemu</td><td>Skala Nielsena 0–4 nadawana po analizie</td><td>Brak problemów o wadze 4 przed wydaniem</td><td>Definicja blokera wydania</td></tr>
+    </table>
+  </div>
+
+  <div class="box">
+    <h2>Harmonogram i etyka badania</h2>
+    <div class="grid3a">
+      <div class="col"><span class="tag">Przygotowanie</span><span class="lab">Screener i rekrutacja, pilotaż na jednej osobie, poprawa dwóch poleceń, które okazały się sugerujące.</span></div>
+      <div class="col"><span class="tag">Sesje</span><span class="lab">Pięć sesji po 35 minut w ciągu dwóch dni, para badaczy zamienia się rolami po każdej sesji.</span></div>
+      <div class="col"><span class="tag">Analiza</span><span class="lab">Macierz obserwacji, diagram pokrewieństwa, ocena wagi problemów, rekomendacje do backlogu.</span></div>
+    </div>
+    <span class="cap">Przed sesją uczestnik otrzymuje informację o celu badania, nagrywaniu ekranu i prawie przerwania w dowolnym momencie. Nagrania opisujemy kodem P1–P5, bez danych pozwalających na identyfikację. Testujemy interfejs, a nie uczestnika, i taką informację moderator podaje wprost na początku sesji.</span>
+  </div>
+</div></body></html>

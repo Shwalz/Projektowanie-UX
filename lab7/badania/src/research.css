@@ -1,0 +1,111 @@
+/* PUX lab4 - kit do warstwy tekstowej (mikrocopy). Tokeny wspolne z lab3. */
+:root{
+  --c-ink:#1A1A1A; --c-muted:#6B6B6B; --c-line:#D5D5D5;
+  --c-bg:#FFFFFF; --c-surface:#F2F2F2; --c-surface-2:#E6E6E6;
+  --c-accent:#2E5AAC; --c-accent-press:#1F3F7A; --c-accent-soft:#E7EDF8;
+  --c-error:#B3261E; --c-error-soft:#FBEAE9; --c-ok:#2E7D32; --c-ok-soft:#E8F3E9;
+  --c-warn:#8A6100; --c-warn-soft:#FCF3DF;
+  --c-disabled-bg:#DCDCDC; --c-disabled-ink:#8F8F8F;
+  --f:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --t-display:30px; --t-h1:24px; --t-h2:19px; --t-body:17px; --t-label:15px; --t-caption:13px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px;
+  --r-s:8px; --r-m:12px; --r-pill:999px;
+  --touch:48px; --gutter:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f);background:var(--c-bg);color:var(--c-ink);font-size:var(--t-body);-webkit-font-smoothing:antialiased}
+
+/* ---- arkusz ---- */
+.sheetpage{width:1240px;padding:32px;display:flex;flex-direction:column;gap:24px;background:var(--c-bg)}
+.sheetpage h1{font-size:28px}
+.sheetpage h2{font-size:var(--t-h2)}
+.lead{font-size:var(--t-label);color:var(--c-muted);max-width:980px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.box{border:1px solid var(--c-line);border-radius:var(--r-m);padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--c-bg)}
+.box.bad{border-color:var(--c-error);background:var(--c-error-soft)}
+.box.good{border-color:var(--c-ok);background:var(--c-ok-soft)}
+.tag{align-self:flex-start;font-size:var(--t-caption);font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-pill);border:1px solid var(--c-line);color:var(--c-muted);background:#fff}
+.tag.bad{border-color:var(--c-error);color:var(--c-error)}
+.tag.good{border-color:var(--c-ok);color:var(--c-ok)}
+.cap{font-size:var(--t-caption);color:var(--c-muted)}
+.lab{font-size:var(--t-label);color:var(--c-muted)}
+.why{font-size:var(--t-label);color:var(--c-ink);border-left:3px solid var(--c-accent);padding-left:10px}
+.why.neg{border-left-color:var(--c-error)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--c-line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--c-surface);font-weight:600}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+.hi-g{background:#CDEBD2;border-radius:3px;padding:0 2px}
+.hi-r{background:#F7C9C6;border-radius:3px;padding:0 2px;text-decoration:underline wavy var(--c-error)}
+
+/* ---- rama ekranu telefonu 390x844 / fragment ---- */
+.screen{width:390px;background:var(--c-bg);position:relative;display:flex;flex-direction:column;border:1px solid var(--c-line);border-radius:var(--r-m);overflow:hidden}
+.screen.tall{min-height:720px}
+.statusbar{height:28px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter);font-size:var(--t-caption);color:var(--c-muted);border-bottom:1px solid var(--c-line)}
+.appbar{min-height:56px;display:flex;align-items:center;gap:var(--s3);padding:var(--s2) var(--gutter);border-bottom:1px solid var(--c-line)}
+.appbar .title{font-size:var(--t-h2);font-weight:600}
+.icon{width:var(--touch);height:var(--touch);min-width:var(--touch);border:1px solid var(--c-line);border-radius:var(--r-s);display:grid;place-items:center;font-size:var(--t-label);color:var(--c-muted);background:var(--c-bg)}
+.body{flex:1;padding:var(--s4) var(--gutter);display:flex;flex-direction:column;gap:var(--s4)}
+.spacer{flex:1}
+
+.btn{min-height:var(--touch);padding:0 var(--s5);border-radius:var(--r-s);border:1px solid transparent;font-size:var(--t-body);font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);background:var(--c-accent);color:#fff;text-align:center}
+.btn.block{width:100%}
+.btn--secondary{background:var(--c-bg);color:var(--c-accent);border-color:var(--c-accent)}
+.btn--text{background:transparent;color:var(--c-accent);padding:0 var(--s2)}
+.btn.is-disabled{background:var(--c-disabled-bg);color:var(--c-disabled-ink)}
+.btn--trap{background:#7A2FD6;color:#fff;font-size:19px;min-height:60px;box-shadow:0 3px 0 #5A1FA6}
+.btn--ghosted{background:transparent;color:#B9B9B9;border:1px solid #E6E6E6;font-weight:400;font-size:13px;min-height:28px;padding:0 var(--s2)}
+.btn--danger{background:var(--c-bg);color:var(--c-error);border-color:var(--c-error)}
+
+.field{display:flex;flex-direction:column;gap:var(--s2)}
+.field .input{min-height:var(--touch);border:1px solid var(--c-line);border-radius:var(--r-s);padding:0 var(--s3);display:flex;align-items:center;gap:var(--s2);background:var(--c-bg);color:var(--c-ink)}
+.field .input.empty{color:var(--c-muted)}
+.field.is-focus .input{border-color:var(--c-accent);box-shadow:0 0 0 3px var(--c-accent-soft)}
+.field.is-error .input{border-color:var(--c-error);background:var(--c-error-soft)}
+.field.is-ok .input{border-color:var(--c-ok)}
+.msg{font-size:var(--t-label);color:var(--c-muted)}
+.msg.err{color:var(--c-error)}
+.msg.ok{color:var(--c-ok)}
+.tooltip{position:relative;background:var(--c-ink);color:#fff;font-size:var(--t-caption);line-height:1.45;border-radius:var(--r-s);padding:10px 12px}
+.tooltip:before{content:"";position:absolute;top:-6px;left:24px;border:6px solid transparent;border-top:0;border-bottom-color:var(--c-ink)}
+.help{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid var(--c-accent);color:var(--c-accent);font-size:12px;font-weight:700}
+
+.banner{border:1px solid var(--c-error);background:var(--c-error-soft);border-radius:var(--r-s);padding:var(--s3);display:flex;gap:var(--s3);font-size:var(--t-label);color:var(--c-error)}
+.banner.info{border-color:var(--c-accent);background:var(--c-accent-soft);color:var(--c-accent)}
+.banner.ok{border-color:var(--c-ok);background:var(--c-ok-soft);color:var(--c-ok)}
+.toast{border-radius:var(--r-s);padding:var(--s3) var(--s4);background:var(--c-ink);color:#fff;font-size:var(--t-label);display:flex;align-items:center;gap:var(--s4);justify-content:space-between}
+.toast .act{color:#9FC0FF;font-weight:700;white-space:nowrap}
+.toast.err{background:var(--c-error)}
+.toast.ok{background:var(--c-ok)}
+.modal{border:1px solid var(--c-line);border-radius:var(--r-m);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s4);background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.empty{border:1px dashed var(--c-line);border-radius:var(--r-m);padding:var(--s6) var(--s5);display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center;background:var(--c-surface)}
+.empty .glyph{width:72px;height:72px;border:2px dashed var(--c-line);border-radius:var(--r-m);display:grid;place-items:center;font-size:28px;color:var(--c-muted);background:#fff}
+.h1{font-size:var(--t-h1);font-weight:700}
+.h2{font-size:var(--t-h2);font-weight:600}
+.row{display:flex;align-items:center;gap:var(--s3)}
+.row.sb{justify-content:space-between}
+.col{display:flex;flex-direction:column;gap:var(--s2)}
+.chip{min-height:32px;padding:0 var(--s3);border:1px solid var(--c-line);border-radius:var(--r-pill);display:inline-flex;align-items:center;font-size:var(--t-label);color:var(--c-muted);background:var(--c-bg)}
+.chip.on{border-color:var(--c-accent);color:var(--c-accent);background:var(--c-accent-soft);font-weight:600}
+.arrow{align-self:center;font-size:28px;color:var(--c-accent);font-weight:700}
+.meter{height:10px;border-radius:var(--r-pill);background:var(--c-surface-2);overflow:hidden}
+.meter>span{display:block;height:100%;background:var(--c-ok)}
+.meter.warn>span{background:var(--c-error)}
+
+/* ---- dodatki dla arkuszy badawczych (lab 7) ---- */
+.grid2a{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3a{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hyp{border:1px solid var(--c-accent);background:var(--c-accent-soft);border-radius:var(--r-m);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.hyp b{color:var(--c-accent)}
+.slot{background:#fff;border:1px dashed var(--c-accent);border-radius:4px;padding:0 4px}
+.note-card{border:1px solid var(--c-line);border-radius:var(--r-s);padding:8px 10px;font-size:13px;background:#FFFBEA;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.cluster{border:1px solid var(--c-line);border-radius:var(--r-m);padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--c-surface)}
+.cluster h3{font-size:15px}
+.insight{border-left:3px solid var(--c-ok);background:var(--c-ok-soft);padding:8px 10px;font-size:13px;border-radius:0 4px 4px 0}
+.sev{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;border-radius:50%;font-weight:700;font-size:13px;color:#fff}
+.sev0{background:#9AA3B2}.sev1{background:#2E7D32}.sev2{background:#8A6100}.sev3{background:#C9521A}.sev4{background:#B3261E}
+.ok-tick{color:var(--c-ok);font-weight:700}
+.no-tick{color:var(--c-error);font-weight:700}
+td.num,th.num{text-align:center;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--c-muted)}

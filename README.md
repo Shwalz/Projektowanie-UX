@@ -12,3 +12,4 @@ Autor: Yahor Falkouski
 | lab4 ([pdf](lab4/PUX_lab04_raport.pdf), [docx](lab4/PUX_lab04_raport.docx)) | UX Writing: audyt językowy, matryca Voice & Tone, mikrocopy i testy czytelności |
 | lab5 ([pdf](lab5/PUX_lab05_raport.pdf), [docx](lab5/PUX_lab05_raport.docx)) | Elementy multimedialne i złudzenia optyczne: audio sterowane kliknięciem, wideo z paskiem przewijania, przyciski z gradientem |
 | lab6 ([pdf](lab6/PUX_lab06_raport.pdf), [docx](lab6/PUX_lab06_raport.docx)) | Zaawansowana responsywność i dostępność: container queries, widgety ARIA, dostępny formularz z walidacją |
+| lab7 ([pdf](lab7/PUX_lab07_raport.pdf), [docx](lab7/PUX_lab07_raport.docx)) | Badania UX: plan i hipotezy, screener, scenariusz z SEQ, test użyteczności, skala Nielsena i backlog |

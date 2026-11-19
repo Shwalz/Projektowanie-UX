@@ -1,0 +1,93 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="research.css"><title>Macierz obserwacji</title></head><body>
+<div class="sheetpage">
+  <h1>Macierz obserwacji z pięciu sesji</h1>
+  <p class="lead">Każda komórka zawiera wynik zadania, czas i ocenę SEQ. P1 był sesją pilotażową: po niej doprecyzowaliśmy polecenia Z2 i Z3, dlatego jego wyniki w tych zadaniach podajemy osobno i nie wliczamy do średnich.</p>
+
+  <div class="box">
+    <h2>Wyniki zadań</h2>
+    <table>
+      <tr>
+        <th style="width:70px">Kod</th><th style="width:60px">Grupa</th>
+        <th class="num">Z1 limit</th><th class="num">Z2 wpis</th><th class="num">Z3 korekta</th><th class="num">Z4 błąd</th><th class="num">Z5 zasady</th>
+      </tr>
+      <tr><td>P1 (pilotaż)</td><td>A</td>
+        <td class="num"><span class="ok-tick">✓</span> 12 s · SEQ 7</td>
+        <td class="num"><span class="ok-tick">✓</span> 71 s · SEQ 5</td>
+        <td class="num"><span class="ok-tick">✓</span> 2 kliknięcia · SEQ 5</td>
+        <td class="num"><span class="ok-tick">✓</span> 24 s · SEQ 6</td>
+        <td class="num"><span class="ok-tick">✓</span> 22 s · SEQ 6</td></tr>
+      <tr><td>P2</td><td>A</td>
+        <td class="num"><span class="ok-tick">✓</span> 11 s · SEQ 7</td>
+        <td class="num"><span class="ok-tick">✓</span> 44 s · SEQ 6</td>
+        <td class="num"><span class="ok-tick">✓</span> 33 s · 2 kliknięcia · SEQ 6</td>
+        <td class="num"><span class="ok-tick">✓</span> 18 s · SEQ 7</td>
+        <td class="num"><span class="ok-tick">✓</span> 19 s · SEQ 6</td></tr>
+      <tr><td>P3</td><td>A</td>
+        <td class="num"><span class="ok-tick">✓</span> 9 s · SEQ 7</td>
+        <td class="num"><span class="ok-tick">✓</span> 38 s · SEQ 7</td>
+        <td class="num"><span class="ok-tick">✓</span> 28 s · 2 kliknięcia · SEQ 6</td>
+        <td class="num"><span class="ok-tick">✓</span> 15 s · SEQ 7</td>
+        <td class="num"><span class="ok-tick">✓</span> 15 s · SEQ 7</td></tr>
+      <tr><td>P4</td><td>B</td>
+        <td class="num"><span class="ok-tick">✓</span> 21 s · SEQ 6</td>
+        <td class="num"><span class="ok-tick">✓</span> 79 s · SEQ 5</td>
+        <td class="num"><span class="no-tick">✗</span> 95 s · szukał w Ustawieniach · SEQ 3</td>
+        <td class="num"><span class="ok-tick">✓</span> 27 s · SEQ 6</td>
+        <td class="num"><span class="ok-tick">✓</span> 34 s · SEQ 5</td></tr>
+      <tr><td>P5</td><td>B</td>
+        <td class="num"><span class="ok-tick">✓</span> 26 s · SEQ 6</td>
+        <td class="num"><span class="no-tick">✗</span> 105 s · zadanie przerwane · SEQ 3</td>
+        <td class="num"><span class="ok-tick">✓</span> 61 s · 4 kliknięcia · SEQ 4</td>
+        <td class="num"><span class="ok-tick">✓</span> 41 s · SEQ 5</td>
+        <td class="num"><span class="no-tick">✗</span> 55 s · zaczął formularz od nowa · SEQ 4</td></tr>
+      <tr>
+        <th>Skuteczność</th><th></th>
+        <th class="num">5 z 5 (100%)</th><th class="num">3 z 4 (75%)</th><th class="num">3 z 4 (75%)</th><th class="num">5 z 5 (100%)</th><th class="num">4 z 5 (80%)</th>
+      </tr>
+      <tr>
+        <th>Mediana czasu</th><th></th>
+        <th class="num">12 s</th><th class="num">44 s</th><th class="num">47 s</th><th class="num">24 s</th><th class="num">22 s</th>
+      </tr>
+      <tr>
+        <th>Średnia SEQ</th><th></th>
+        <th class="num">6,6</th><th class="num">5,3</th><th class="num">4,8</th><th class="num">6,2</th><th class="num">5,6</th>
+      </tr>
+      <tr>
+        <th>Podpowiedzi</th><th></th>
+        <th class="num">0</th><th class="num">1 (po przerwaniu)</th><th class="num">1 (po przerwaniu)</th><th class="num">0</th><th class="num">0</th>
+      </tr>
+    </table>
+    <div class="legend">
+      <span><span class="ok-tick">✓</span> cel osiągnięty bez pomocy</span>
+      <span><span class="no-tick">✗</span> zadanie nieukończone lub przerwane po 90 s</span>
+      <span>SEQ: 1 bardzo trudne, 7 bardzo łatwe; próg alarmowy 5,0</span>
+      <span>Mediana i średnia bez sesji pilotażowej w Z2 i Z3</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Weryfikacja hipotez</h2>
+    <table>
+      <tr><th style="width:52px">Hipoteza</th><th style="width:240px">Metryka</th><th style="width:120px">Próg</th><th style="width:140px">Wynik</th><th>Rozstrzygnięcie</th></tr>
+      <tr><td>H1</td><td>Mediana czasu korekty błędu w grupie B (Z4)</td><td>poniżej 30 s</td><td>34 s (27 s i 41 s)</td><td><b>Nie potwierdzona.</b> Obie osoby poprawiły błąd bez pomocy, ale P5 szukał pola wzrokiem, bo na telefonie nie widać przeniesienia fokusu. Treść komunikatu zadziałała, zawiódł sposób wskazania miejsca błędu.</td></tr>
+      <tr><td>H2</td><td>Odsetek korekt błędnej kategorii bez podpowiedzi (Z3)</td><td>co najmniej 80%</td><td>75% ogółem, 2 z 2 w grupie A</td><td><b>Nie potwierdzona.</b> Żaden uczestnik nie wymienił znacznika „auto” jako powodu sprawdzenia kategorii; osoby z grupy A zauważyły niezgodność z opisu transakcji, czyli mimo znacznika, a nie dzięki niemu.</td></tr>
+      <tr><td>H3</td><td>Mediana czasu wpisu i skuteczność (Z2)</td><td>poniżej 60 s, co najmniej 80%</td><td>44 s, 75%</td><td><b>Potwierdzona częściowo.</b> Kryterium czasu spełnione z zapasem, kryterium skuteczności nie: jedna osoba nie dokończyła zapisu, bo nie zobaczyła komunikatu o brakującej kategorii.</td></tr>
+    </table>
+  </div>
+
+  <div class="box">
+    <h2>Wybrane wypowiedzi z protokołu głośnego myślenia</h2>
+    <table>
+      <tr><th style="width:70px">Kod</th><th style="width:70px">Zadanie</th><th>Cytat</th><th style="width:260px">Zachowanie zaobserwowane równolegle</th></tr>
+      <tr><td>P5</td><td>Z2</td><td>„Naciskam zapisz i nic się nie dzieje. Chyba aplikacja się zawiesiła.”</td><td>Trzykrotne naciśnięcie przycisku, brak przewinięcia w górę, gdzie czekał komunikat</td></tr>
+      <tr><td>P4</td><td>Z3</td><td>„Skoro to aplikacja wpisała kategorię, to pewnie zmienia się ją w ustawieniach.”</td><td>Wejście w Ustawienia, powrót, przerwanie po 95 s</td></tr>
+      <tr><td>P2</td><td>Z3</td><td>„Bilet w jedzeniu? To na pewno pomyłka, poprawiam.”</td><td>Dotknięcie pozycji, przycisk „Zmień” przy kategorii, dwa kliknięcia</td></tr>
+      <tr><td>P3</td><td>Z4</td><td>„O, pisze, ile ma być i podaje przykład. To proste.”</td><td>Poprawa kwoty w 15 s, bez czytania pozostałych pól</td></tr>
+      <tr><td>P5</td><td>Z4</td><td>„Wiem, co mam zrobić, tylko nie widzę, które pole jest złe.”</td><td>Przewijanie formularza w górę i w dół przez 18 s</td></tr>
+      <tr><td>P5</td><td>Z5</td><td>„Zamknę to okno, ale czy to, co wpisałam, przepadnie?”</td><td>Po zamknięciu okna wyczyszczenie formularza i rozpoczęcie od nowa</td></tr>
+      <tr><td>P4</td><td>Z1</td><td>„Tu od razu widać, ile zostało. Tego szukałem.”</td><td>Odczyt z karty limitu w 21 s, bez wchodzenia w listę</td></tr>
+      <tr><td>P2</td><td>K4</td><td>„Zmieniłabym to, żeby po zapisaniu było widać wpis na liście od razu.”</td><td>Po zapisie przewijanie listy w poszukiwaniu nowej pozycji</td></tr>
+    </table>
+    <span class="cap">Cytaty zapisywaliśmy dosłownie, a obok nich zachowanie zaobserwowane w tym samym momencie. Rozdzielenie słów od czynności pozwala zastosować zasadę Nielsena: wnioski wyciągamy z tego, co uczestnik zrobił, a wypowiedź traktujemy jako wskazówkę o jego oczekiwaniach.</span>
+  </div>
+</div></body></html>
