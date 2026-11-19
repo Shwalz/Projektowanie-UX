@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multimedia: dźwięki zwierząt i pasek postępu wideo</title>
+<style>
+  :root{
+    --ink:#1A1A1A; --muted:#6B6B6B; --line:#D5D5D5; --accent:#2E5AAC; --surface:#F2F2F2;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:32px 24px 64px;
+    font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--ink); background:#fff; font-size:16px; line-height:1.5;
+  }
+  h1{font-size:24px; margin:0 0 6px}
+  h2{font-size:19px; margin:36px 0 6px}
+  p.hint{color:var(--muted); font-size:14px; margin:0 0 20px; max-width:720px}
+
+  /* ---------- zadanie 1 ---------- */
+  #animals{
+    display:flex; gap:64px; flex-wrap:wrap; align-items:flex-end;
+    /* zapas u góry równy wysokości obrazka: powiększenie do 2x mieści się w ramce */
+    padding:120px 32px 32px; border:1px solid var(--line); border-radius:12px; background:var(--surface);
+  }
+  .animalSlot{width:100px; height:100px; display:flex; align-items:flex-end; justify-content:center}
+  .animalButton{
+    width:100px;          /* jednakowa szerokość, proporcje zachowane */
+    height:auto;
+    cursor:pointer;
+    transform:scale(1);
+    transform-origin:bottom center;   /* powiększenie w górę, bez nachodzenia na sąsiada */
+    transition:transform 0.5s ease-out;
+    -webkit-user-select:none; user-select:none;
+  }
+  .animalButton:focus-visible{outline:3px solid var(--accent); outline-offset:4px}
+
+  /* ---------- zadanie 2 ---------- */
+  #player{display:inline-block}
+  video{display:block; width:640px; max-width:100%; background:#000; border:1px solid var(--line)}
+  #videoProgressBar{
+    width:640px; max-width:100%; height:22px; margin-top:8px;
+    background:#C9D4EA; border:1px solid var(--accent); border-radius:4px;
+    position:relative; overflow:hidden; cursor:pointer;
+  }
+  #videoProgressFill{
+    position:absolute; left:0; top:0; bottom:0; width:0;
+    background:var(--accent); pointer-events:none;
+  }
+  #videoTime{font-size:13px; color:var(--muted); margin-top:6px}
+  footer{margin-top:48px; font-size:12px; color:var(--muted)}
+</style>
+</head>
+<body>
+
+<h1>Zadanie 1. Dźwięki zwierząt</h1>
+<p class="hint">
+  Kliknij obrazek. Zaczyna się odtwarzanie dźwięku, a obrazek powiększa się do skali 2x w czasie równym
+  długości ścieżki audio. Po zdarzeniu <code>ended</code> wraca do pierwotnego rozmiaru w 0,5 s.
+</p>
+
+<!-- pliki dźwiękowe bez kontrolek: na stronie nie ma ich reprezentacji graficznej -->
+<audio id="soundElephant" preload="metadata"><source src="audio/elephant.mp3" type="audio/mpeg"></audio>
+<audio id="soundFrog"     preload="metadata"><source src="audio/frog.wav"     type="audio/wav"></audio>
+<audio id="soundHorse"    preload="metadata"><source src="audio/horse.mp3"    type="audio/mpeg"><source src="audio/horse.ogg" type="audio/ogg"></audio>
+<audio id="soundRooster"  preload="metadata"><source src="audio/rooster.mp3"  type="audio/mpeg"></audio>
+
+<div id="animals">
+  <div class="animalSlot"><img id="Elephant" class="animalButton" src="images/elephant.svg" alt="Słoń" title="Słoń" tabindex="0"></div>
+  <div class="animalSlot"><img id="Frog"     class="animalButton" src="images/frog.svg"     alt="Żaba" title="Żaba" tabindex="0"></div>
+  <div class="animalSlot"><img id="Horse"    class="animalButton" src="images/horse.svg"    alt="Koń"  title="Koń"  tabindex="0"></div>
+  <div class="animalSlot"><img id="Rooster"  class="animalButton" src="images/rooster.svg"  alt="Kogut" title="Kogut" tabindex="0"></div>
+</div>
+
+<h2>Zadanie 2. Wideo z zewnętrznym paskiem postępu</h2>
+<p class="hint">
+  Kliknięcie w belkę pod filmem ustawia pozycję odtwarzania proporcjonalnie do miejsca kliknięcia
+  w osi poziomej. Wypełnienie belki pokazuje bieżącą pozycję.
+</p>
+
+<div id="player">
+  <video id="video" src="video/video.mp4" controls preload="metadata"></video>
+  <div id="videoProgressBar" role="slider" aria-label="Pozycja odtwarzania" tabindex="0">
+    <div id="videoProgressFill"></div>
+  </div>
+  <div id="videoTime">0:00 / 0:00</div>
+</div>
+
+<footer>
+  Elephant by Tatiana Belkina from the Noun Project · Frog by Tatiana Belkina from the Noun Project ·
+  Horse by Samy Menai from the Noun Project
+</footer>
+
+<script>
+/* ============ Zadanie 1 ============ */
+var animals = document.querySelectorAll(".animalButton");
+
+function resetAnimal(img){
+  img.style.transition = "transform 0.5s ease-out";
+  img.style.transform  = "scale(1)";
+}
+
+function animalClicked(img){
+  var audio = document.getElementById("sound" + img.id);
+  if(!audio) return;
+
+  /* zatrzymanie pozostałych dźwięków i powrót ich obrazków do skali 1 */
+  animals.forEach(function(other){
+    if(other === img) return;
+    var otherAudio = document.getElementById("sound" + other.id);
+    if(otherAudio && !otherAudio.paused){ otherAudio.pause(); otherAudio.currentTime = 0; }
+    resetAnimal(other);
+  });
+
+  audio.currentTime = 0;
+  audio.play();
+
+  /* czas tranzycji = długość ścieżki audio; gdy metadane jeszcze się nie wczytały, używamy zapasowej wartości */
+  var seconds = isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 1;
+  img.style.transition = "transform " + seconds + "s linear";
+  void img.offsetWidth;                 /* wymuszenie reflow, żeby nowa tranzycja zadziałała */
+  img.style.transform = "scale(2)";
+}
+
+animals.forEach(function(img){
+  img.addEventListener("click", function(){ animalClicked(img); });
+  img.addEventListener("keydown", function(e){
+    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); animalClicked(img); }
+  });
+
+  var audio = document.getElementById("sound" + img.id);
+  if(audio){
+    /* zdarzenie zakończenia odtwarzania: powrót do pierwotnego rozmiaru w 0,5 s */
+    audio.addEventListener("ended", function(){ resetAnimal(img); });
+  }
+});
+
+/* ============ Zadanie 2 ============ */
+var video = document.getElementById("video");
+var bar   = document.getElementById("videoProgressBar");
+var fill  = document.getElementById("videoProgressFill");
+var label = document.getElementById("videoTime");
+
+function fmt(t){
+  if(!isFinite(t)) return "0:00";
+  var m = Math.floor(t / 60), s = Math.floor(t % 60);
+  return m + ":" + (s < 10 ? "0" : "") + s;
+}
+
+function seekFromEvent(e){
+  var rect = bar.getBoundingClientRect();
+  var x = e.clientX - rect.left;                       /* pozycja kliknięcia w osi poziomej */
+  var ratio = Math.min(Math.max(x / rect.width, 0), 1);
+  if(isFinite(video.duration)) video.currentTime = ratio * video.duration;
+}
+
+bar.addEventListener("click", seekFromEvent);
+
+video.addEventListener("timeupdate", function(){
+  if(!isFinite(video.duration) || video.duration === 0) return;
+  fill.style.width = (video.currentTime / video.duration * 100) + "%";
+  label.textContent = fmt(video.currentTime) + " / " + fmt(video.duration);
+});
+
+video.addEventListener("loadedmetadata", function(){
+  label.textContent = "0:00 / " + fmt(video.duration);
+});
+</script>
+</body>
+</html>

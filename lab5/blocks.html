@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moving blocks on stripped background</title>
+<style>
+  html{ background:#999; padding:0; }
+  body{ margin:0; padding:0; }
+
+  /* ---------- panel przycisków (zadanie 3) ---------- */
+  #panel{
+    position:absolute; top:24px; left:0; right:0;
+    display:flex; justify-content:center; gap:16px; flex-wrap:wrap;
+    padding:0 16px;
+  }
+  .toggle{
+    font-family:sans-serif; font-size:17px; font-weight:bold; line-height:1;
+    color:#3C4A3C; text-shadow:0 1px 0 rgba(255,255,255,.75);
+    padding:13px 26px; min-width:170px;
+    border:1px solid #7E8A7E; border-radius:22px;
+    cursor:pointer;
+    /* stan wyłączony: gradient od jasnego u góry do ciemnego u dołu = wypukłość */
+    background-color:#C7D2BE;
+    background:linear-gradient(180deg, #EDF2E6 0%, #D3DCC6 45%, #B4C0A4 100%);
+    box-shadow:0 2px 3px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.85);
+    transition:background .15s linear, box-shadow .15s linear, color .15s linear;
+  }
+  .toggle:hover{ background:linear-gradient(180deg, #F3F7EE 0%, #DAE3CE 45%, #BCC8AC 100%); }
+  .toggle:focus-visible{ outline:3px solid #2E5AAC; outline-offset:3px; }
+  .toggle.on{
+    /* stan włączony: gradient odwrócony + cień wewnętrzny = wklęsłość */
+    color:#223022; text-shadow:0 1px 0 rgba(255,255,255,.45);
+    background-color:#A9B79B;
+    background:linear-gradient(180deg, #9FAE92 0%, #B9C4AB 55%, #D8E0CC 100%);
+    box-shadow:inset 0 3px 5px rgba(0,0,0,.45), 0 1px 0 rgba(255,255,255,.5);
+  }
+
+  /* ---------- złudzenie optyczne ---------- */
+  #track{
+    background-color:#999;
+    background-image:linear-gradient(90deg, #000 0%, #000 50%, #fff 50%, #fff 100%);
+    background-size:50px 50px;
+    border:1px solid #000;
+    width:675px; height:225px;
+    position:absolute; top:0; right:0; bottom:0; left:0;
+    margin:auto; padding:0;
+  }
+  #track.proof{ background-image:none; }           /* tło wyłączone */
+
+  .block{
+    width:100px; height:40px;
+    position:absolute; left:0;
+    animation:illusion 9s linear infinite alternate;
+  }
+  .block.light{ background:#fff; top:10px; }
+  .block.dark{  background:#000; bottom:10px; }
+
+  /* ramki wokół bloków, włączane przyciskami */
+  .block.light.outlined{ outline:2px solid #D01A1A; outline-offset:0; }
+  .block.dark.outlined{  outline:2px solid #D01A1A; outline-offset:0; }
+
+  @keyframes illusion{
+    from{ left:0; }
+    to{   left:calc(100% - 100px); }
+  }
+</style>
+</head>
+
+<body>
+
+<div id="panel">
+  <button type="button" id="btnBackground"   class="toggle on" aria-pressed="true">Background</button>
+  <button type="button" id="btnWhiteBorder"  class="toggle"    aria-pressed="false">White box border</button>
+  <button type="button" id="btnBlackBorder"  class="toggle"    aria-pressed="false">Black box border</button>
+</div>
+
+<div id="track">
+  <div class="block light"></div>
+  <div class="block dark"></div>
+</div>
+
+<script>
+function bind(buttonId, apply){
+  var btn = document.getElementById(buttonId);
+  btn.addEventListener("click", function(){
+    var on = !btn.classList.contains("on");
+    btn.classList.toggle("on", on);
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    apply(on);
+  });
+}
+
+var track = document.getElementById("track");
+var light = document.querySelector(".block.light");
+var dark  = document.querySelector(".block.dark");
+
+/* 1. tło, po którym poruszają się bloki */
+bind("btnBackground", function(on){ track.classList.toggle("proof", !on); });
+
+/* 2. ramka wokół białego bloku */
+bind("btnWhiteBorder", function(on){ light.classList.toggle("outlined", on); });
+
+/* 3. ramka wokół czarnego bloku */
+bind("btnBlackBorder", function(on){ dark.classList.toggle("outlined", on); });
+</script>
+</body>
+</html>
